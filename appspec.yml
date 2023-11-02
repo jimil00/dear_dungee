@@ -5,6 +5,7 @@ files:
   - source: /
     destination: /home/ec2-user/app/build # 인스턴스에서 파일이 저장될 위치
     overwrite: yes
+    file_exists_behavior: overwrite
 
 permissions: # CodeDeploy에서 EC2 서버로 넘겨 준 파일들은 모두 ec2-user 권한을 가진다
   - object: /
@@ -13,8 +14,13 @@ permissions: # CodeDeploy에서 EC2 서버로 넘겨 준 파일들은 모두 ec2
     group: ec2-user
 
 hooks: # CodeDeploy 배포 단계에서 실행할 명령어
+
   AfterInstall:
     - location: scripts/deploy.sh
       timeout: 60
       runas: ec2-user
+
+  ApplicationStart:
+    - location: scripts/deploy.sh
+      timeout: 60
 

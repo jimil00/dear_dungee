@@ -2,27 +2,66 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>회원가입</title>
+    <title>signup</title>
 </head>
 
 <style>
     * {
-	box-sizing: border-box;
-}
+            box-sizing: border-box;
+        }
 
-    .container {
-        width; 500px;
-        border: 1px solid black;
-        height: 500px;
-    }
+        div {
+            border: 1px solid black;
+        }
+
+        .container {
+            width: 700px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .header {
+            height: 100px;
+        }
+
+        .logo {
+            height: 100px;
+            text-align: center;
+        }
+
+        .main {
+            text-align: center;
+        }
+
+        .general-div, .shelter-div {
+
+        }
+
+        .general-btn, .shelter-btn {
+            width: 200px;
+            height: 80px;
+            margin-top: 15px;
+        }
+
+        .footer {
+            text-align: center;
+            height: 100px;
+        }
 </style>
 <body>
-
-    <div class="container">
-        <div class="header"></div>
-        <div class="main"></div>
-        <div class="footer"></div>
+<div class="container">
+    <div class="header">
+        <div class="logo">logo</div>
     </div>
-
+    <div class="main">
+        <div class="general-div">
+            <button class="general-btn" type="button">일반 회원가입</button>
+        </div>
+        <div class="shelter-div">
+            <button class="shelter-btn" type="button">보호소 회원가입</button>
+        </div>
+    </div>
+    <div class="footer">footer</div>
+</div>
 </body>
 </html>

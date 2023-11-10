@@ -1,5 +1,12 @@
 package com.dev.dear_dungee.dto;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor // 기본 생성자 자동완성
 public class ShelterDTO {
 
     private String shelter_id;
@@ -10,7 +17,7 @@ public class ShelterDTO {
     private String manager_phone;
     private String pw;
 
-    public ShelterDTO() {
+  /*  public ShelterDTO() {
         super();
     }
 
@@ -79,4 +86,5 @@ public class ShelterDTO {
     public void setPw(String pw) {
         this.pw = pw;
     }
+*/
 }

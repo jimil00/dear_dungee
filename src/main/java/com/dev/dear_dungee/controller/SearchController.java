@@ -16,7 +16,7 @@ public class SearchController {
     @RequestMapping("toSearch")
     public String toSearch(String search_word, Model model) {
 
-        return "search";
+        return "/search.html";
     }
 
     //보호소 리스트 조회

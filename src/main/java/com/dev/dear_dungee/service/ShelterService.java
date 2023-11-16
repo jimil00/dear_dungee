@@ -15,27 +15,27 @@ public class ShelterService {
     private ShelterDAO dao;
 
     //검색어로 보호소 출력
-    public List<ShelterDTO> selectAllbySearchWord(String search_word){
+    public List<ShelterDTO> selectAllBySearchWord(String search_word){
 
-        return dao.selectAllbySearchWord(search_word);
+        return dao.selectAllBySearchWord(search_word);
     }
 
     //이름으로 보호소 출력
-    public List<ShelterDTO> selectAllbyName(String shelter_name){
+    public List<ShelterDTO> selectAllByName(String shelter_name){
 
-        return dao.selectAllbyName(shelter_name);
+        return dao.selectAllByName(shelter_name);
     }
 
     //주소로 보호소 출력
-    public List<ShelterDTO> selectAllbyAddress(String shelter_address){
+    public List<ShelterDTO> selectAllByAddress(String shelter_address){
 
-        return dao.selectAllbyAddress(shelter_address);
+        return dao.selectAllByAddress(shelter_address);
     }
 
     //필요물품으로 보호소 출력
-    public List<ShelterDTO> selectAllbyItem(String item_name){
+    public List<ShelterDTO> selectAllByItem(String item_name){
 
-        return dao.selectAllbyItem(item_name);
+        return dao.selectAllByItem(item_name);
     }
 
 

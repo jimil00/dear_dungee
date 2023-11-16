@@ -14,24 +14,23 @@ public class ShelterDAO {
     private SqlSession db;
 
     //검색어로 select
-    public List<ShelterDTO> selectAllbySearchWord(String search_word){
+    public List<ShelterDTO> selectAllBySearchWord(String search_word){
         return db.selectList("shelter.selectAllbySearchWord",search_word);
     }
 
     //이름별 select
-    public List<ShelterDTO> selectAllbyName(String shelter_name){
+    public List<ShelterDTO> selectAllByName(String shelter_name){
         return db.selectList("shelter.selectAllbyName",shelter_name);
     }
 
     //지역별 select
-    public List<ShelterDTO> selectAllbyAddress(String shelter_address){
+    public List<ShelterDTO> selectAllByAddress(String shelter_address){
         return db.selectList("shelter.selectAllbyAddress",shelter_address);
     }
 
     //필요물품별 select
-    public List<ShelterDTO> selectAllbyItem(String item_name){
+    public List<ShelterDTO> selectAllByItem(String item_name){
         return db.selectList("shelter.selectAllbyItem",item_name);
     }
-
 
 }

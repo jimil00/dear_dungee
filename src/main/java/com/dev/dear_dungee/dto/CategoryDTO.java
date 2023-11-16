@@ -1,11 +1,18 @@
 package com.dev.dear_dungee.dto;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor // 기본 생성자 자동완성
 public class CategoryDTO {
 
     private int category_id;
     private String category_name;
 
-    public CategoryDTO() {
+    /* public CategoryDTO() {
         super();
     }
 
@@ -28,5 +35,5 @@ public class CategoryDTO {
 
     public void setCategory_name(String category_name) {
         this.category_name = category_name;
-    }
+    }*/
 }

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/default_layout}">
+<meta charset="UTF-8">
+
+<th:block layout:fragment="head">
+  <title>Search_page</title>
+
+  <!--/* css */-->
+  <link th:href="@{/css/search.css}" rel="stylesheet" />
+</th:block>
+
+<body>
+<th:block layout:fragment="header" th:include="@{/fragments/header}">여기가 헤더</th:block>
+
+<div layout:fragment="content" class="content">
+  <h2>여기가 콘텐츠 부분</h2>
+  <div class="first">검색바 출력</div>
+  <div class="second">이름별/지역별/필요물품 다중 검색 출력</div>
+  <div class="third">검색결과 출력</div>
+</div>
+
+<th:block layout:fragment="footer" th:include="@{/fragments/footer}">여기는 푸터</th:block>
+</body>
+
+</html>

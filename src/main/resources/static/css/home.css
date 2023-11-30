@@ -72,6 +72,33 @@
         height: 500px;
     }
 
-    .footer {
-        height: 100px;
-    }
+  .footer_flexbox {
+         height: 100%;
+         display:flex;
+         justify-content: space-between;
+     }
+     .info_txt{
+         display:block;
+         text-align: left;
+     }
+     #copyright{
+         color: grey;
+         font-size: small;
+     }
+     .sns_terms{
+         text-align: right;
+     }
+     .sns_icon {
+         display:inline;
+         height: 50px;
+         width:auto;
+     }
+
+     .sns_icon> img{
+         height:30px;
+         width:auto;
+     }
+     .terms> span{
+         font-size: small;
+         text-decoration: underline;
+     }

@@ -3,125 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link th:href="@{/css/home.css}" rel="stylesheet" />
 </head>
-<style>
-    * {
-        box-sizing: border-box;
-        text-align: center;
-    }
 
-    div {
-        border: 1px solid black;
-    }
-
-    .container {
-        margin: auto;
-        width: 978px;
-        overflow: hidden;
-    }
-
-    .header {
-        height: 150px;
-    }
-
-    .header-left {
-        width: 30%;
-        height: 150px;
-        float: left;
-    }
-
-    .login, .signup, .search {
-        float: left;
-        width: 80px;
-    }
-
-    .header-right {
-        position: relative;
-        width: 70%;
-        height: 150px;
-        float: right;
-        /* overflow: hidden; */
-    }
-
-    img {
-        position: absolute;
-        width: 330px;
-        top: -80px;
-        right: 270px;
-    }
-
-    .main {
-        height: 500px;
-    }
-
-    .footer_flexbox {
-        height: 100%;
-        display:flex;
-        justify-content: space-between;
-    }
-    .info_txt{
-        display:block;
-        text-align: left;
-    }
-    #copyright{
-        color: grey;
-        font-size: small;
-    }
-    .sns_terms{
-        text-align: right;
-    }
-    .sns_icon {
-        display:inline;
-        height: 50px;
-        width:auto;
-    }
-
-    .sns_icon> img{
-        height:30px;
-        width:auto;
-    }
-    .terms> span{
-        font-size: small;
-        text-decoration: underline;
-    }
-
-
-</style>
 <body>
-
-<div class="container">
-    <div class="header">
-        <div class="header-left">
-            <div class="login">로그인</div>
-            <div class="signup">회원가입</div>
-            <div class="search">돋보기</div>
-        </div>
-        <div class="header-right">
-            <img src="로고_기본.png">
-        </div>
-    </div>
-    <div class="main">main</div>
-    <div class="footer">
-        <hr></hr>
-        <div class="footer_flexbox">
-            <div class="biz_info">
-                <span class="info_txt">디얼둥이 | 고양시 강아지동 냥냥 79-59</span>
-                <span class="info_txt">02-7979-5959 | deardungee@admin.kr</span>
-                <span class="info_txt" id="copyright">©deardungee all right reserved.</span>
-            </div>
-            <div class="sns_terms">
-                <div class="sns_icon">
-                    <img th:src="@{/images/instagram.png}" id="insta">
-                    <img th:src="@{/images/facebook.png}" id="facebook">
-                    <img th:src="@{/images/youtube.png}" id="youtube">
-                </div>
-                <div class="terms">
-                    <span id="use_terms" >이용약관</span>
-                    <span id="privacy_policy">개인정보처리방침</span>
+    <div class="container">
+        <div class="header">
+            <div class="header-left">
+                <div class="login">로그인</div>
+                <div class="signup">회원가입</div>
+                <div class="search">
+                    <span class="material-icons">search</span>
                 </div>
             </div>
+            <div class="header-right">
+                <img src="/images/로고_기본.png">
+            </div>
+            <hr id="headerHr">
+        </div>
+        <div class="main"></div>
+        <div class="footer">
+            <hr></hr>
+            <div class="footer_flexbox">
+                <div class="biz_info">
+                    <span class="info_txt">디얼둥이 | 고양시 강아지동 냥냥 79-59</span>
+                    <span class="info_txt">02-7979-5959 | deardungee@admin.kr</span>
+                    <span class="info_txt" id="copyright">©deardungee all right reserved.</span>
+                </div>
+                <div class="sns_terms">
+                    <div class="sns_icon">
+                        <img src="/images/instagram.png" id="insta"></img>
+                        <img src="/images/facebook.png" id="facebook"></img>
+                        <img src="/images/youtube.png" id="youtube"></img>
+                    </div>
+                    <div class="terms">
+                        <span id="use_terms" >이용약관</span>
+                        <span id="privacy_policy">개인정보처리방침</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 </body>
 </html>

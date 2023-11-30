@@ -3,78 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link th:href="@{/css/home.css}" rel="stylesheet" />
 </head>
-<style>
-    * {
-        box-sizing: border-box;
-        text-align: center;
-    }
 
-    div {
-        border: 1px solid black;
-    }
-
-    .container {
-        margin: auto;
-        width: 978px;
-        overflow: hidden;
-    }
-
-    .header {
-        height: 150px;
-    }
-
-    .header-left {
-        width: 30%;
-        height: 150px;
-        float: left;
-    }
-
-    .login, .signup, .search {
-        float: left;
-        width: 80px;
-    }
-
-    .header-right {
-        position: relative;
-        width: 70%;
-        height: 150px;
-        float: right;
-        /* overflow: hidden; */
-    }
-
-    img {
-        position: absolute;
-        width: 330px;
-        top: -80px;
-        right: 270px;
-    }
-
-    .main {
-        height: 500px;
-    }
-
-    .footer {
-        height: 100px;
-    }
-</style>
 <body>
-
-<div class="container">
-    <div class="header">
-        <div class="header-left">
-            <div class="login">로그인</div>
-            <div class="signup">회원가입</div>
-            <div class="search">돋보기</div>
+    <div class="container">
+        <div class="header">
+            <div class="header-left">
+                <div class="login">로그인</div>
+                <div class="signup">회원가입</div>
+                <div class="search">
+                    <span class="material-icons">search</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <img src="/images/로고_기본.png">
+            </div>
+            <hr id="headerHr">
         </div>
-        <div class="header-right">
-            <img src="로고_기본.png">
-        </div>
+        <div class="main"></div>
+        <div class="footer"></div>
     </div>
-    <div class="main">main</div>
-    <div class="footer">footer</div>
-</div>
-
-
 </body>
 </html>

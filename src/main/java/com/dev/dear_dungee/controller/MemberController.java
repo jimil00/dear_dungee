@@ -17,11 +17,11 @@ public class MemberController {
     @RequestMapping("toSignup")
     public String toSignup(Model model) {
 
-        String id = "def";
-        MemberDTO dto = service.selectMemberById(id);
-        model.addAttribute("dto", dto);
-
-        System.out.println(dto.getName());
+//        String id = "def";
+//        MemberDTO dto = service.selectMemberById(id);
+//        model.addAttribute("dto", dto);
+//
+//        System.out.println(dto.getName());
 
         return "member/signup";
     }

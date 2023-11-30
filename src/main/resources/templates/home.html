@@ -54,39 +54,12 @@
         height: 500px;
     }
 
- .footer_flexbox {
-        height: 100%;
-        display:flex;
-        justify-content: space-between;
+    .footer {
+        height: 100px;
     }
-    .info_txt{
-        display:block;
-        text-align: left;
-    }
-    #copyright{
-        color: grey;
-        font-size: small;
-    }
-    .sns_terms{
-        text-align: right;
-    }
-    .sns_icon {
-        display:inline;
-        height: 50px;
-        width:auto;
-    }
-
-    .sns_icon> img{
-        height:30px;
-        width:auto;
-    }
-    .terms> span{
-        font-size: small;
-        text-decoration: underline;
-    }
-
 </style>
 <body>
+
 <div class="container">
     <div class="header">
         <div class="header-left">
@@ -99,27 +72,9 @@
         </div>
     </div>
     <div class="main">main</div>
-    <div class="footer">
-        <hr></hr>
-        <div class="footer_flexbox">
-            <div class="biz_info">
-                <span class="info_txt">디얼둥이 | 고양시 강아지동 냥냥 79-59</span>
-                <span class="info_txt">02-7979-5959 | deardungee@admin.kr</span>
-                <span class="info_txt" id="copyright">©deardungee all right reserved.</span>
-            </div>
-            <div class="sns_terms">
-                <div class="sns_icon">
-                    <img id="insta" th:src="@{/images/instagram.png}">
-                    <img id="facebook" th:src="@{/images/facebook.png}">
-                    <img id="youtube" th:src="@{/images/youtube.png}">
-                </div>
-                <div class="terms">
-                    <span id="use_terms">이용약관</span>
-                    <span id="privacy_policy">개인정보처리방침</span>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="footer">footer</div>
 </div>
+
+
 </body>
 </html>

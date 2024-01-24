@@ -23,7 +23,7 @@ public class MemberController {
 //
 //        System.out.println(dto.getName());
 
-        return "member/signup";
+        return "member/generalSignup";
     }
 
 

@@ -1,0 +1,83 @@
+@font-face {
+        font-family: 'SeoulNamsanM';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulNamsanM.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    * {
+        font-family: 'SeoulNamsanM';
+        box-sizing: border-box;
+    }
+
+    div {
+        /* border: 1px solid black; */
+        overflow: hidden;
+    }
+
+    .container {
+        width: 350px;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    .header {
+        text-align: center;
+    }
+
+    .header>img {
+        height: 180px;
+    }
+
+    .main {
+        overflow: hidden;
+    }
+
+    .main_title {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        font-size: large;
+    }
+
+    .input_div {
+        height: 40px;
+        margin: auto;
+        margin-top: 15px;
+    }
+
+    input {
+        width: 100%;
+        height: 40px;
+    }
+
+    .phone_div,
+    .certification_div {
+        position: relative;
+    }
+
+    .certification_btn,
+    .check_btn {
+        position: absolute;
+        height: 40px;
+        right: 0px;
+    }
+
+    /* class 속성 값이 "Result"로 끝나는 요소 선택 */
+    [class$="Result"] {
+        margin-top: 5px;
+        font-size: 17px;
+        margin-top: 5px;
+    }
+
+    .signup_div,
+    .back_div {
+        text-align: center;
+    }
+
+    .signup_btn,
+    .back_btn {
+        width: 100%;
+        height: 40px;
+        margin-top: 15px;
+    }

@@ -26,5 +26,11 @@ public class MemberController {
         return "member/generalSignup";
     }
 
+    @RequestMapping("toLogin")
+    public String toLogin(Model model) {
+
+        return "member/login";
+    }
+
 
 }

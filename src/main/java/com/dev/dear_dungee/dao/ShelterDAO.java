@@ -14,13 +14,8 @@ public class ShelterDAO {
     private SqlSession db;
 
     //검색어로 select
-    public List<ShelterDTO> selectAllBySearchWord(String search_word){
-        return db.selectList("shelter.selectAllbySearchWord",search_word);
-    }
-
-    //이름별 select
-    public List<ShelterDTO> selectAllByName(String shelter_name){
-        return db.selectList("shelter.selectAllbyName",shelter_name);
+    public List<ShelterDTO> selectShelterListBySw(String search_word){
+        return db.selectList("shelter.selectShelterListBySw",search_word);
     }
 
     //지역별 select

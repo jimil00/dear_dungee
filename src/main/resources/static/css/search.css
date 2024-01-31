@@ -1,15 +1,103 @@
-body, html {
-
+ @font-face {
+    font-family: 'SeoulNamsanM';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulNamsanM.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
-.header {
+    * {
+        font-family: 'Orbit-Regular';
+        box-sizing: border-box;
+    }
 
-}
+    div {
+        /* border: 1px solid black; */
+    }
 
-.content {
+    .container {
+        margin: auto;
+        width: 978px;
+        overflow: hidden;
+    }
 
-}
+    .header {
+        height: 150px;
+    }
 
-.footer {
+    .header-left {
+        width: 30%;
+        height: 100%;
+        float: left;
+    }
 
-}
+    .header-right {
+        position: relative;
+        width: 70%;
+        height: 100%;
+        float: right;
+    }
+
+    .login,
+    .signup,
+    .search {
+        position: relative;
+        width: 21%;
+        height: 100%;
+        float: left;
+        line-height: 270px;
+        font-size: 17px;
+        font-weight: bold;
+    }
+
+    .material-icons {
+        position: absolute;
+        top: 127px;
+        left: 15px;
+        font-size: 22px;
+    }
+
+   .header-right>img {
+        position: absolute;
+        width: 330px;
+        top: -80px;
+        right: 310px;
+    }
+
+    .headerHr {
+        height: 1px;
+        border-top: 1px solid rgb(216, 216, 216);
+    }
+
+    .main {
+        height: 500px;
+    }
+
+  .footer_flexbox {
+         height: 100%;
+         display:flex;
+         justify-content: space-between;
+     }
+     .info_txt{
+         display:block;
+         text-align: left;
+     }
+     #copyright{
+         color: grey;
+         font-size: small;
+     }
+     .sns_terms{
+         text-align: right;
+     }
+     .sns_icon {
+         display:inline;
+         height:50px;
+         width:auto;
+     }
+     .sns_icon> img{
+         height:20px;
+         width:auto;
+     }
+     .terms> span{
+         font-size: small;
+         text-decoration: underline;
+     }

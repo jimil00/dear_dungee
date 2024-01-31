@@ -1,0 +1,57 @@
+@font-face {
+        font-family: 'SeoulNamsanM';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulNamsanM.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    * {
+        font-family: 'SeoulNamsanM';
+        box-sizing: border-box;
+    }
+
+    div {
+        /* border: 1px solid black; */
+        overflow: hidden;
+    }
+
+    .container {
+        width: 350px;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    .header {
+        text-align: center;
+    }
+
+    .header>img {
+        height: 180px;
+    }
+
+    .main {
+        overflow: hidden;
+    }
+
+    .input_div {
+        height: 40px;
+        margin: auto;
+        margin-top: 15px;
+    }
+
+    input {
+        width: 100%;
+        height: 40px;
+    }
+
+    .login_btn,
+    .kakao_btn {
+        width: 100%;
+        height: 40px;
+        margin-top: 15px;
+    }
+
+    .signup_pw {
+        margin-top: 20px;
+        text-align: center;
+    }

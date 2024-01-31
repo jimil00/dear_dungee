@@ -2,96 +2,121 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>generalSignup</title>
+    <title>Home</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link th:href="@{/css/generalSignup.css}" rel="stylesheet" />
 </head>
-<style>
-    * {
-            box-sizing: border-box;
-        }
 
-        div {
-            border: 1px solid black;
-        }
-
-        .container {
-            width: 700px;
-            margin: auto;
-            overflow: hidden;
-        }
-
-        .header {
-            height: 100px;
-        }
-
-
-        .logo {
-            height: 100px;
-            text-align: center;
-        }
-
-        .main {
-            height: 500px;
-            text-align: center;
-        }
-
-        .main-title {
-            padding-right: 230px;
-        }
-
-        input {
-            width: 300px;
-            height: 35px;
-            margin-top: 15px;
-        }
-
-        .phone-div,
-        .certification-div {
-            position: relative;
-        }
-
-        .certification-btn,
-        .check-btn {
-            height: 35px;
-            position: absolute;
-            right: 199px;
-            top: 15px;
-        }
-
-        .signup-btn,
-        .back-btn {
-            width: 300px;
-            height: 35px;
-            margin-top: 15px;
-
-        }
-
-        .footer {
-            height: 100px;
-            text-align: center;
-        }
-</style>
 <body>
 <div class="container">
     <div class="header">
-        <div class="logo">logo</div>
+        <img class="logo" src="/images/logo_basic.png">
     </div>
     <div class="main">
-        <div class="main-title">일반 회원</div>
-        <div><input type="text" placeholder="이름"></div>
-        <div class="phone-div">
-            <input type="text" placeholder="핸드폰 번호 (-를 제외한 숫자)">
-            <button class="certification-btn" type="button">인증</button>
+        <div class="main_title">일반 회원</div>
+        <form action="/member/signUp" method="post">
+        <div class="main_content">
+            <div class="input_div">
+                <div><input type="text" maxlength="30" placeholder="이름"></div>
+            </div>
+            <div class="input_div">
+                <div class="phone_div">
+                    <input type="text" id="phone" maxlength="11" placeholder="핸드폰 번호 (-을 제외한 숫자)">
+                    <button class="certification_btn" type="button">인증</button>
+                </div>
+            </div>
+            <div class="phoneResult" id="phoneResult"></div>
+            <div class="input_div">
+                <div class="certification_div">
+                    <input type="number" placeholder="인증번호">
+                    <button class="check_btn" type="button">확인</button>
+                </div>
+            </div>
+            <!-- <div class="certification_result">인증번호가 올바르지 않습니다.</div> -->
+            <div class="input_div">
+                <div><input type="password" id="pw" placeholder="비밀번호 (8자 이상의 영문, 숫자, 특수문자 조합)"></div>
+            </div>
+            <div class="pwResult" id="pwResult"></div>
+            <div class="input_div">
+                <div><input type="password" id="pwchk" placeholder="비밀번호 확인"></div>
+            </div>
+            <div class="pwchkResult" id="pwchkResult"></div>
+            <div class="signup_div">
+                <button class="signup_btn">회원가입</button>
+            </div>
+            <div class="back_div">
+                <button class="back_btn" type="button">뒤로 가기</button>
+            </div>
         </div>
-        <div class="certification-div">
-            <input type="text" placeholder="인증번호">
-            <button class="check-btn" type="button">확인</button>
-        </div>
-        <div><input type="password" placeholder="비밀번호 (8~20자의 영문, 숫자, 특수문자 조합)"></div>
-        <div><input type="password" placeholder="비밀번호 확인"></div>
-        <div><button class="signup-btn">회원가입</button></div>
-        <div><button class="back-btn" type="button">뒤로 가기</button></div>
+        </form>
     </div>
-    <div class="footer">footer</div>
 </div>
+
+<script>
+    // 핸드폰 번호 숫자만 입력시키는 함수 (이게 꼭 필요할까)
+    // function inputNum(id) {
+    //     let phone = document.getElementById('phone');
+    //     phone.value = phone.value.replace(/[^0-9]/gi, "");
+    // }
+
+    // 핸드폰 번호 유효성 검사 함수
+    let phone = document.getElementById("phone");
+    let phoneResult = document.getElementById("phoneResult");
+
+    phone.onkeyup = function () {
+        let phoneValue = document.getElementById("phone").value;
+        let phoneRegex = /^01\d\d{4}\d{4}$/;
+        let result = phoneRegex.test(phoneValue);
+
+        if (result) {
+            phone.style.border = "2px solid blue";
+            phoneResult.innerHTML = "";
+
+        } else {
+            phone.style.border = "2px solid red";
+            phoneResult.innerHTML = "-을 제외한 휴대폰 번호만 입력해주세요.";
+
+        }
+    }
+
+    // 비밀번호 유효성 검사 함수
+    //  8글자 이상, 영문, 숫자, 특수문자 사용
+    // /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/
+
+    let pw = document.getElementById("pw");
+    let pwResult = document.getElementById("pwResult");
+
+    pw.onkeyup = function () {
+        let pwValue = document.getElementById("pw").value;
+        let pwRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+        let result = pwRegex.test(pwValue);
+
+        if (result) {
+            pw.style.border = "2px solid blue";
+            pwResult.innerHTML = "";
+
+        } else {
+            pw.style.border = "2px solid red";
+            pwResult.innerHTML = "8자 이상의 영문, 숫자, 특수문자를 사용해주세요.";
+        }
+    }
+
+    // 비밀번호 확인 함수
+    let pwchk = document.getElementById("pwchk");
+    let pwchkResult = document.getElementById("pwchkResult");
+
+    pwchk.onkeyup = function () {
+        let pwValue = document.getElementById("pw").value;
+        let pwchkValue = document.getElementById("pwchk").value;
+
+        if (pwValue == pwchkValue) {
+            pwchk.style.border = "2px solid blue";
+            pwchkResult.innerHTML = "";
+        } else {
+            pwchk.style.border = "2px solid red";
+            pwchkResult.innerHTML = "비밀번호가 일치하지 않습니다.";
+        }
+    };
+</script>
 </body>
 </html>

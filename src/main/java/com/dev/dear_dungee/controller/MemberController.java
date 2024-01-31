@@ -23,7 +23,13 @@ public class MemberController {
 //
 //        System.out.println(dto.getName());
 
-        return "member/signup";
+        return "member/generalSignup";
+    }
+
+    @RequestMapping("toLogin")
+    public String toLogin(Model model) {
+
+        return "member/login";
     }
 
 

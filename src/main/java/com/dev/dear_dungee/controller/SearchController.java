@@ -22,9 +22,9 @@ public class SearchController {
     public String toSearch(String search_word, Model model) {
 
         //보호소 리스트 출력
-        List<ShelterDTO> slist = shelservice.selectShelterListBySw(search_word);
+       // List<ShelterDTO> slist = shelservice.selectShelterListBySw(search_word);
 
-        return "/search.html";
+        return "search";
     }
 
 

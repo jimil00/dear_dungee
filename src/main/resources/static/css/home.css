@@ -6,7 +6,7 @@
 }
 
     * {
-        font-family: 'Orbit-Regular';
+        font-family: 'SeoulNamsanM';
         box-sizing: border-box;
     }
 
@@ -54,6 +54,9 @@
         top: 127px;
         left: 15px;
         font-size: 22px;
+    }
+    #search_word, #swbtn {
+        display:none;
     }
 
    .header-right>img {

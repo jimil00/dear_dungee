@@ -11,6 +11,11 @@ public class MemberDAO {
     @Autowired
     private SqlSession db;
 
+    // 회원가입
+    public int signup(MemberDTO dto) {
+        return db.insert("Member.signup", dto);
+    }
+
     public MemberDTO selectMemberById(String member_id) {
         return db.selectOne("Member.selectMemberById", member_id);
     }

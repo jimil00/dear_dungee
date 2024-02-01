@@ -3,6 +3,15 @@
 
 <mapper namespace="Member">
 
+    <!--회원가입-->
+    <insert id="signup">
+        insert into member
+        values(#{member_id},#{name},#{phone},#{pw},sysdate())
+    </insert>
+
+    <!--로그인-->
+
+
     <select id="selectMemberById" resultType="MemberDTO">
         select * from member where member_id = #{member_id}
     </select>

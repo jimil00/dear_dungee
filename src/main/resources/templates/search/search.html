@@ -1,28 +1,111 @@
 <!DOCTYPE html>
-
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout/default_layout}">
-<meta charset="UTF-8">
-
-<th:block layout:fragment="head">
-  <title>Search_page</title>
-
-  <!--/* css */-->
-  <link th:href="@{/css/search.css}" rel="stylesheet" />
-</th:block>
-
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link th:href="@{/css/home.css}" rel="stylesheet" />
+</head>
 <body>
-<th:block layout:fragment="header" th:include="@{/fragments/header}">여기가 헤더</th:block>
+<div class="container">
+  <div class="header">
+    <div class="header-left">
+      <div class="login">로그인</div>
+      <div class="signup">회원가입</div>
+      <div class="search">
+        <span class="material-icons">search</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <img src="/images/로고_기본.png">
+    </div>
+    <hr class="headerHr">
+  </div>
 
-<div layout:fragment="content" class="content">
-  <h2>여기가 콘텐츠 부분</h2>
-  <div class="first">검색바 출력</div>
-  <div class="second">이름별/지역별/필요물품 다중 검색 출력</div>
-  <div class="third">검색결과 출력</div>
+  <div class="main">
+    <div class="search_bar">
+      <div id="detail_search">상세검색</div>
+      <div id="bar">
+        <form th:action="@{/search/}" method="get">
+          <input type="text" name="searchWord">
+          <button type="submit">검색</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="requirements">
+
+      <div class="req_box">
+
+        <div class="region_box">
+          <div class="req_txt">지역별</div>
+          <div class="cities">
+            <span>서울</span>
+            <span>경기</span>
+            <span>인천</span>
+            <span>대전</span>
+            <span>광주</span>
+            <span>대구</span>
+            <span>부산</span>
+            <span>세종</span>
+            <span>울산</span>
+          </div>
+          <span class="-do">강원도</span>
+          <span class="-do">충청북도</span>
+          <span class="-do">충청남도</span>
+          <span class="-do">전라북도</span>
+          <span class="-do">전라남도</span>
+          <span class="-do">경상북도</span>
+          <span class="-do">경상남도</span>
+          <span class="-do">제주</span>
+        </div>
+
+        <div class="items_box">
+          <div class="req_txt">이름별</div>
+          <span>사료/간식</span>
+          <span>장난감</span>
+          <span>이불</span>
+          <span>기타</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="search_results" th:each="data:${리스트}">
+      <div class="result_header" th:text="${검색결과}">검색 결과 26개</div>
+      <div class="result_main">
+
+        <div class="shelter_box">
+          <div class="shel_name" th:text="${보호소 이름}">나비 행복 연구소</div>
+          <span class="shel_add" th:text="${보호소 주소}">서울시 구로구 오류동</sapn>
+            <span class="shel_like" th:text="${해당 유저에 대한 보호소 좋아요 여부}">좋아요</span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <hr class="headerHr">
+    <div class="footer_flexbox">
+      <div class="biz_info">
+        <span class="info_txt">디얼둥이 | 고양시 강아지동 냥냥 79-59</span>
+        <span class="info_txt">02-7979-5959 | deardungee@admin.kr</span>
+        <span class="info_txt" id="copyright">©deardungee all right reserved.</span>
+      </div>
+      <div class="sns_terms">
+        <div class="sns_icon">
+          <img src="/images/instagram.png" id="insta"></img>
+          <img src="/images/facebook.png" id="facebook"></img>
+          <img src="/images/youtube.png" id="youtube"></img>
+        </div>
+        <div class="terms">
+          <span id="use_terms" >이용약관</span>
+          <span id="privacy_policy">개인정보처리방침</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<th:block layout:fragment="footer" th:include="@{/fragments/footer}">여기는 푸터</th:block>
 </body>
-
 </html>

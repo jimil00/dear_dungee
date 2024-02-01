@@ -5,29 +5,83 @@
     <title>Home</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link th:href="@{/css/login.css}" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 </head>
 
 <body>
 <div class="container">
     <div class="header">
-        <img class="logo" src="/images/logo_basic.png">
+        <a href="/"><img class="logo" src="/images/logo_basic.png"></a>
     </div>
     <div class="main">
         <div class="input_div">
-            <div><input type="text" maxlength="11" placeholder="핸드폰 번호 (-을 제외한 숫자)"></div>
+            <div><input type="text" name="phone" id="phone" maxlength="11" placeholder="핸드폰 번호 (-을 제외한 숫자)"></div>
         </div>
+        <div class="phoneResult" id="phoneResult"></div>
         <div class="input_div">
-            <input type="password" placeholder="비밀번호">
+            <input type="password" name="pw" id="pw" placeholder="비밀번호">
         </div>
+        <div class="pwResult" id="pwResult"></div>
         <div class="login_div">
-            <button class="login_btn">로그인</button>
+            <button class="login_btn" id="login_btn">로그인</button>
         </div>
         <div class="kakao_div">
             <button class="kakao_btn" type="button">카카오 로그인</button>
         </div>
         <hr>
-        <div class="signup_pw"><a href="/member/toSignup">회원가입</a> | <a href="">비밀번호 재설정</a></div>
+        <div class="signup_pw"><a href="/member/toSignup">회원가입</a> | <a href="/member/toPwReset">비밀번호 재설정</a></div>
     </div>
 </div>
+
+<script>
+    //로그인 버튼 클릭 시
+    $("#login_btn").on("click", function () {
+        login();
+    });
+
+    //엔터키 눌렀을 때
+    $(document).on("keydown", function (key) {
+        if (key.keyCode == 13) {
+            login();
+        }
+    });
+
+    // 로그인 함수
+    function login() {
+
+        let phone = $("#phone").val();
+        let pw = $("#pw").val();
+
+<!--        let phoneResult = document.getElementById("phoneResult");-->
+<!--        let pwResult = document.getElementById("pwResult");-->
+
+<!--        if(!phone) {-->
+<!--            phoneResult.innerHTML = "핸드폰 번호를 입력해주세요.";-->
+<!--            return false;-->
+<!--        }else{-->
+<!--        phoneResult.innerHTML = "";-->
+<!--    }-->
+
+        $.ajax({ //페이지 이동 없이 값을 얻어 냄
+            url: "/member/login",
+            data: {
+                "phone": phone,
+                "pw": pw
+            }
+        }).done(function (resp) {
+
+            console.log(resp);
+
+            if (resp == false) {//핸드폰 번호, 비밀번호가 존재하지 않을 때,
+                alert("핸드폰 번호 혹은 비밀번호가 존재하지 않습니다.");
+                $('#phone').val('');
+                $('#pw').val('');
+            } else if (resp == true) { //핸드폰 번호, 비밀번호가 존재할 때,
+                location.href = "/";
+            }
+        })
+    }
+
+</script>
 </body>
 </html>

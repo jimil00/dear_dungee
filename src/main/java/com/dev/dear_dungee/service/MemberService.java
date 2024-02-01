@@ -5,6 +5,8 @@ import com.dev.dear_dungee.dto.MemberDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 @Service
@@ -21,6 +23,22 @@ public class MemberService {
         dto.setMember_id(member_id);
 
         dao.signup(dto);
+    }
+
+    // 로그인
+    public boolean isLoginOk(String phone, String pw) {
+        Map<String, String> param = new HashMap<>();
+        param.put("phone", phone);
+        param.put("pw", pw);
+
+        boolean result = dao.isLoginOk(param);
+
+        return result;
+    }
+
+    //로그인 성공하면 id 값 가져와서 session 만들기
+    public String selectIdByPhone(String phone) {
+        return dao.selectIdByPhone(phone);
     }
 
     public MemberDTO selectMemberById(String member_id) {

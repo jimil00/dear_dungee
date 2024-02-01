@@ -4,77 +4,75 @@
     <meta charset="UTF-8">
     <title>Home</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link th:href="@{/css/home.css}" rel="stylesheet" />
+    <link th:href="@{/css/home.css}" rel="stylesheet"/>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <body>
 
-    <div class="container">
-        <div class="header">
-            <div class="header-left">
-                <a href="/member/toLogin"><div class="login">로그인</div></a>
-                <a href="/member/toSignup"><div class="signup">회원가입</div></a>
-                <div class="search">
-                    <span class="material-icons" id="sbtn">search</span>
-                    <form action="/search/ToSearch" id="search-form">
-                        <input type="text" name="search_word" id="search_word" placeholder="검색어를 입력해주세요.">
-                        <button type="submit" id="swbtn"> > </button>
-                    </form>
-                </div>
+<div class="container">
+    <div class="header">
+        <div class="header-left">
+            <a href="/member/toLogin">
+                <div class="login">로그인</div>
+            </a>
+            <a href="/member/toSignup">
+                <div class="signup">회원가입</div>
+            </a>
+            <div class="search">
+                <span class="material-icons" id="sbtn">search</span>
+                <form action="/search/ToSearch" id="search-form">
+                    <input type="text" name="search_word" id="search_word" placeholder="검색어를 입력해주세요.">
+                    <button type="submit" id="swbtn"> ></button>
+                </form>
             </div>
-            <div class="header-right">
-                <img src="/images/로고_기본.png">
-            </div>
-            <hr class="headerHr">
         </div>
-        <div class="main"></div>
-        <div class="footer">
-            <hr class="headerHr">
-            <div class="footer_flexbox">
-                <div class="biz_info">
-                    <span class="info_txt">디얼둥이 | 고양시 강아지동 냥냥 79-59</span>
-                    <span class="info_txt">02-7979-5959 | deardungee@admin.kr</span>
-                    <span class="info_txt" id="copyright">©deardungee all right reserved.</span>
+        <div class="header-right">
+            <img src="/images/로고_기본.png">
+        </div>
+        <hr class="headerHr">
+    </div>
+    <div class="main"></div>
+    <div class="footer">
+        <hr class="headerHr">
+        <div class="footer_flexbox">
+            <div class="biz_info">
+                <span class="info_txt">디얼둥이 | 고양시 강아지동 냥냥 79-59</span>
+                <span class="info_txt">02-7979-5959 | deardungee@admin.kr</span>
+                <span class="info_txt" id="copyright">©deardungee all right reserved.</span>
+            </div>
+            <div class="sns_terms">
+                <div class="sns_icon">
+                    <img src="/images/instagram.png" id="insta">
+                    <img src="/images/facebook.png" id="facebook">
+                    <img src="/images/youtube.png" id="youtube">
                 </div>
-                <div class="sns_terms">
-                    <div class="sns_icon">
-                        <img src="/images/instagram.png" id="insta">
-                        <img src="/images/facebook.png" id="facebook">
-                        <img src="/images/youtube.png" id="youtube">
-                    </div>
-                    <div class="terms">
-                        <span id="use_terms" >이용약관</span>
-                        <span id="privacy_policy">개인정보처리방침</span>
-                    </div>
+                <div class="terms">
+                    <span id="use_terms">이용약관</span>
+                    <span id="privacy_policy">개인정보처리방침</span>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <script>
+<script>
 
-//enter로 검색어 넘어가기
- $("#search_word").on("keydown", function(e) {
-         if (e.keyCode == 13) {
-            $("#search-form").submit();
-         }
+    $("#sbtn").click(function() {
 
- $("#sbtn").click(function() {
+   //원하는 div에 들어갈 수 있게 방법찾기
 
-//원하는 div에 들어갈 수 있게 방법찾기
+        $("#search_word").slideToggle(100);
+        $("#swbtn").slideToggle(100);
 
-     $("#search_word").slideToggle(100);
-     $("#swbtn").slideToggle(100);
+           $("#search_word").css('display','block');
+           $("#swbtn").css('display','block');
 
-        $("#search_word").css('display','block');
-        $("#swbtn").css('display','block');
+           $("#search_word").css('display','none');
+           $("#swbtn").css('display','none');
 
-        $("#search_word").css('display','none');
-        $("#swbtn").css('display','none');
+         });
 
-      });
-
-  </script>
+</script>
 
 </body>
 </html>

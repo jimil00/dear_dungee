@@ -16,18 +16,26 @@
                 <a href="/member/toSignup"><div class="signup">회원가입</div></a>
                 <div class="search">
                     <span class="material-icons" id="sbtn">search</span>
-                    <form action="/search/ToSearch" id="search-form">
-                        <input type="text" name="search_word" id="search_word" placeholder="검색어를 입력해주세요.">
-                        <button type="submit" id="swbtn"> > </button>
-                    </form>
                 </div>
             </div>
+
             <div class="header-right">
                 <img src="/images/로고_기본.png">
             </div>
+
             <hr class="headerHr">
+
+            <div class="search-bar">
+                <form th:action="@{/search/ToSearch}" method="get" id="search-form">
+                    <input type="text" name="search_word" id="search_word" placeholder="검색어를 입력해주세요.">
+                    <button type="submit" id="swbtn"> > </button>
+                </form>
+            </div>
+
         </div>
+
         <div class="main"></div>
+
         <div class="footer">
             <hr class="headerHr">
             <div class="footer_flexbox">
@@ -53,16 +61,7 @@
 
     <script>
 
-//enter로 검색어 넘어가기
- $("#search_word").on("keydown", function(e) {
-         if (e.keyCode == 13) {
-            $("#search-form").submit();
-         }
-
  $("#sbtn").click(function() {
-
-//원하는 div에 들어갈 수 있게 방법찾기
-
      $("#search_word").slideToggle(100);
      $("#swbtn").slideToggle(100);
 
@@ -75,6 +74,5 @@
       });
 
   </script>
-
 </body>
 </html>

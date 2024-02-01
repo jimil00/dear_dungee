@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Home</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link th:href="@{/css/home.css}" rel="stylesheet" />
+  <link th:href="@{/css/search.css}" rel="stylesheet" />
 </head>
 <body>
 <div class="container">
@@ -26,8 +26,8 @@
     <div class="search_bar">
       <div id="detail_search">상세검색</div>
       <div id="bar">
-        <form th:action="@{/search/}" method="get">
-          <input type="text" name="searchWord">
+        <form th:action="@{/search/ToSearch}" method="get">
+          <input type="text" name="search_word">
           <button type="submit">검색</button>
         </form>
       </div>
@@ -50,38 +50,42 @@
             <span>세종</span>
             <span>울산</span>
           </div>
-          <span class="-do">강원도</span>
-          <span class="-do">충청북도</span>
-          <span class="-do">충청남도</span>
-          <span class="-do">전라북도</span>
-          <span class="-do">전라남도</span>
-          <span class="-do">경상북도</span>
-          <span class="-do">경상남도</span>
-          <span class="-do">제주</span>
+          <div class="-do">
+            <span>강원도</span>
+            <span>충청북도</span>
+            <span>충청남도</span>
+            <span>전라북도</span>
+            <span>전라남도</span>
+            <span>경상북도</span>
+            <span>경상남도</span>
+            <span>제주</span>
+          </div>
         </div>
 
         <div class="items_box">
-          <div class="req_txt">이름별</div>
-          <span>사료/간식</span>
-          <span>장난감</span>
-          <span>이불</span>
-          <span>기타</span>
+          <div class="req_txt">필요물품별</div>
+          <div class="items">
+            <span>사료/간식</span>
+            <span>장난감</span>
+            <span>이불</span>
+            <span>기타</span>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="search_results" th:each="data:${리스트}">
+   <!-- <div class="search_results" th:each="data:${리스트}">
       <div class="result_header" th:text="${검색결과}">검색 결과 26개</div>
       <div class="result_main">
 
         <div class="shelter_box">
           <div class="shel_name" th:text="${보호소 이름}">나비 행복 연구소</div>
-          <span class="shel_add" th:text="${보호소 주소}">서울시 구로구 오류동</sapn>
+          <span class="shel_add" th:text="${보호소 주소}">서울시 구로구 오류동</span>
             <span class="shel_like" th:text="${해당 유저에 대한 보호소 좋아요 여부}">좋아요</span>
         </div>
 
       </div>
-    </div>
+    </div>-->
 
   </div>
 

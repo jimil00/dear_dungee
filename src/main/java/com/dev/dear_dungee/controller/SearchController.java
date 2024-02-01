@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -18,17 +19,18 @@ public class SearchController {
     private ShelterService shelservice;
 
     //검색 페이지로 이동
-    @RequestMapping("toSearch")
-    public String toSearch(String search_word, Model model) {
+    @RequestMapping("ToSearch")
+    public String ToSearch(String search_word, Model model) {
+
+        System.out.println(search_word);
+        model.addAttribute("search_word", search_word);
 
         //보호소 리스트 출력
-       // List<ShelterDTO> slist = shelservice.selectShelterListBySw(search_word);
+       //List<ShelterDTO> slist = shelservice.selectShelterListBySw(search_word);
 
-        return "search";
+        return "search/search";
     }
 
-
     //검색 필터링
-
 
 }

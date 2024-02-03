@@ -52,15 +52,10 @@
         let phone = $("#phone").val();
         let pw = $("#pw").val();
 
-<!--        let phoneResult = document.getElementById("phoneResult");-->
-<!--        let pwResult = document.getElementById("pwResult");-->
-
-<!--        if(!phone) {-->
-<!--            phoneResult.innerHTML = "핸드폰 번호를 입력해주세요.";-->
-<!--            return false;-->
-<!--        }else{-->
-<!--        phoneResult.innerHTML = "";-->
-<!--    }-->
+        if(!phone) {
+            alert("핸드폰 번호를 입력해주세요.");
+            return;
+        }
 
         $.ajax({ //페이지 이동 없이 값을 얻어 냄
             url: "/member/login",

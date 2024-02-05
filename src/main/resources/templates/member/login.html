@@ -33,50 +33,7 @@
     </div>
 </div>
 
-<script>
-    //로그인 버튼 클릭 시
-    $("#login_btn").on("click", function () {
-        login();
-    });
+<script type="text/javascript" th:src="@{/js/login.js}"></script>
 
-    //엔터키 눌렀을 때
-    $(document).on("keydown", function (key) {
-        if (key.keyCode == 13) {
-            login();
-        }
-    });
-
-    // 로그인 함수
-    function login() {
-
-        let phone = $("#phone").val();
-        let pw = $("#pw").val();
-
-        if(!phone) {
-            alert("핸드폰 번호를 입력해주세요.");
-            return;
-        }
-
-        $.ajax({ //페이지 이동 없이 값을 얻어 냄
-            url: "/member/login",
-            data: {
-                "phone": phone,
-                "pw": pw
-            }
-        }).done(function (resp) {
-
-            console.log(resp);
-
-            if (resp == false) {//핸드폰 번호, 비밀번호가 존재하지 않을 때,
-                alert("핸드폰 번호 혹은 비밀번호가 존재하지 않습니다.");
-                $('#phone').val('');
-                $('#pw').val('');
-            } else if (resp == true) { //핸드폰 번호, 비밀번호가 존재할 때,
-                location.href = "/";
-            }
-        })
-    }
-
-</script>
 </body>
 </html>

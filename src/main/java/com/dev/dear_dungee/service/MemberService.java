@@ -31,9 +31,7 @@ public class MemberService {
         param.put("phone", phone);
         param.put("pw", pw);
 
-        boolean result = dao.isLoginOk(param);
-
-        return result;
+        return dao.isLoginOk(param);
     }
 
     //로그인 성공하면 id 값 가져와서 session 만들기

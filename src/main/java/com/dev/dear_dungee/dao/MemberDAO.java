@@ -23,7 +23,7 @@ public class MemberDAO {
         return db.selectOne("Member.isLoginOk",param);
     }
 
-    // 아이디로 세션값 주기 위한 로직
+    // id로 세션값 주기
     public String selectIdByPhone(String phone) {
         return db.selectOne("Member.selectIdByPhone", phone);
     }

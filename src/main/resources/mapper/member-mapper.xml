@@ -14,6 +14,7 @@
         select count(*) from member where phone=#{phone} and pw=#{pw}
     </select>
 
+    <!--id로 세션값 주기-->
     <select id="selectIdByPhone" resultType="String">
         select * from member where phone = #{value}
     </select>

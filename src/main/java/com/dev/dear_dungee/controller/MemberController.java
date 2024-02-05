@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
@@ -58,10 +59,10 @@ public class MemberController {
 
     //로그인
     @ResponseBody //에이작스로 보낼 때
-    @RequestMapping("login")
+    @RequestMapping(value = "login", method = RequestMethod.POST)
     public boolean login(String phone, String pw) {
 
-        //비밀번호 암호화 후 db에 있는 암호화된 비번과 맞는지 확인
+        //비밀번호 암호화 후 db에 있는 암호화된 비밀번호와 맞는지 확인
         String encryPassword = Pw_SHA256.getSHA256(pw);
 
         System.out.println("비밀번호:" + pw);
@@ -69,7 +70,7 @@ public class MemberController {
 
         boolean result = service.isLoginOk(phone, encryPassword);
 
-        //System.out.println(result);
+        System.out.println(result);
 
         if (result) {
 

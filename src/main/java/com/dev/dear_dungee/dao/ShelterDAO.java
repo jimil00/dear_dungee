@@ -15,17 +15,17 @@ public class ShelterDAO {
 
     //검색어로 select
     public List<ShelterDTO> selectShelterListBySw(String search_word){
-        return db.selectList("shelter.selectShelterListBySw",search_word);
+        return db.selectList("Shelter.selectShelterListBySw",search_word);
     }
 
     //지역별 select
     public List<ShelterDTO> selectAllByAddress(String shelter_address){
-        return db.selectList("shelter.selectAllbyAddress",shelter_address);
+        return db.selectList("Shelter.selectAllbyAddress",shelter_address);
     }
 
     //필요물품별 select
     public List<ShelterDTO> selectAllByItem(String item_name){
-        return db.selectList("shelter.selectAllbyItem",item_name);
+        return db.selectList("Shelter.selectAllbyItem",item_name);
     }
 
 }

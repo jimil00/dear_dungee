@@ -13,7 +13,7 @@ public class DearDungeeApplication {
 		SpringApplication.run(DearDungeeApplication.class, args);
 
 		System.out.println("진짜 시작이다!");
-		System.out.println("진짜 진짜 최종 찐으로 바로 시작이다!");
+
 	}
 
 }

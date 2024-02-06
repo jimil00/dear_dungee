@@ -42,22 +42,12 @@
          font-weight: bold;
      }
 
-    .material-icons {
-        position: absolute;
-        top: 127px;
-        left: 15px;
-        font-size: 22px;
-    }
-    #search_word, #swbtn {
-        display:none;
-         border: 0;
-         border-radius: 20px;
-    }
-
-    #search_word{
-       height:20px;
-       text-align:center;
-    }
+     .material-icons {
+         position: absolute;
+         top: 149.5px;
+         left: 15px;
+         font-size: 22px;
+     }
 
      .header-right {
          position: relative;
@@ -77,16 +67,9 @@
          border-top: 1px solid rgb(216, 216, 216);
      }
 
-    .search-bar {
-        width:200px;
-        position: relative;
-        bottom:21%;
-        left: 17%;
-    }
-
-    .main {
-        height: 500px;
-    }
+     .main {
+         height: 500px;
+     }
 
   .footer_flexbox {
          height: 100%;

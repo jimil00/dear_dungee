@@ -16,12 +16,7 @@ public class HomeController {
     @RequestMapping("/")
     public String home(Model model) {
 
-        // db 연동 테스트
-//        String id = "def";
-//        MemberDTO dto = service.selectMemberById(id);
-//        model.addAttribute("dto", dto);
-//        System.out.println(dto.getName());
-    return "/home.html";
+    return "home";
 
     }
 }

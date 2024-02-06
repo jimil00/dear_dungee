@@ -4,30 +4,36 @@
     <meta charset="UTF-8">
     <title>Home</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link th:href="@{/css/login.css}" rel="stylesheet" />
+    <link th:href="@{/css/login.css}" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 </head>
 
 <body>
 <div class="container">
     <div class="header">
-        <img class="logo" src="/images/logo_basic.png">
+        <a href="/"><img class="logo" src="/images/logo_basic.png"></a>
     </div>
     <div class="main">
         <div class="input_div">
-            <div><input type="text" maxlength="11" placeholder="핸드폰 번호 (-을 제외한 숫자)"></div>
+            <div><input type="text" name="phone" id="phone" maxlength="11" placeholder="핸드폰 번호 (-을 제외한 숫자)"></div>
         </div>
+        <div class="phoneResult" id="phoneResult"></div>
         <div class="input_div">
-            <input type="password" placeholder="비밀번호">
+            <input type="password" name="pw" id="pw" placeholder="비밀번호">
         </div>
+        <div class="pwResult" id="pwResult"></div>
         <div class="login_div">
-            <button class="login_btn">로그인</button>
+            <button class="login_btn" id="login_btn">로그인</button>
         </div>
         <div class="kakao_div">
             <button class="kakao_btn" type="button">카카오 로그인</button>
         </div>
         <hr>
-        <div class="signup_pw"><a href="/member/toSignup">회원가입</a> | <a href="">비밀번호 재설정</a></div>
+        <div class="signup_pw"><a href="/member/toSignup">회원가입</a> | <a href="/member/toPwReset">비밀번호 재설정</a></div>
     </div>
 </div>
+
+<script type="text/javascript" th:src="@{/js/login.js}"></script>
+
 </body>
 </html>

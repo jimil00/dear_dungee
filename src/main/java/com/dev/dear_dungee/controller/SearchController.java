@@ -22,11 +22,13 @@ public class SearchController {
     @RequestMapping("ToSearch")
     public String ToSearch(String search_word, Model model) {
 
-        System.out.println(search_word);
         model.addAttribute("search_word", search_word);
+        System.out.println(search_word);
 
         //보호소 리스트 출력
-       //List<ShelterDTO> slist = shelservice.selectShelterListBySw(search_word);
+       List<ShelterDTO> slist = shelservice.selectShelterListBySw(search_word);
+       model.addAttribute("slist", slist);
+        System.out.println(slist);
 
         return "search/search";
     }

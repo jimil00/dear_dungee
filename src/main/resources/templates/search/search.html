@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Home</title>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link th:href="@{/css/search.css}" rel="stylesheet" />
 </head>
 <body>
@@ -12,9 +11,7 @@
     <div class="header-left">
       <div class="login">로그인</div>
       <div class="signup">회원가입</div>
-      <div class="search">
-        <span class="material-icons">search</span>
-      </div>
+
     </div>
     <div class="header-right">
       <img src="/images/로고_기본.png">
@@ -74,18 +71,22 @@
       </div>
     </div>
 
-   <!-- <div class="search_results" th:each="data:${리스트}">
-      <div class="result_header" th:text="${검색결과}">검색 결과 26개</div>
+    <div class="result_header">검색 결과 n개</div>
+
+    <div class="search_flexbox">
+
+    <div class="search_results" th:each="shel:${slist}">
       <div class="result_main">
-
         <div class="shelter_box">
-          <div class="shel_name" th:text="${보호소 이름}">나비 행복 연구소</div>
-          <span class="shel_add" th:text="${보호소 주소}">서울시 구로구 오류동</span>
-            <span class="shel_like" th:text="${해당 유저에 대한 보호소 좋아요 여부}">좋아요</span>
-        </div>
+          <div class="shel_name" th:text="${shel.shelter_name}"></div>
+          <span class="shel_add" th:text="${shel.shelter_address}"></span>
 
+          <!-- <span class="shel_like" th:text="${shel.해당 유저에 대한 보호소 좋아요 여부}">좋아요</span> -->
+
+        </div>
       </div>
-    </div>-->
+      </div>
+    </div>
 
   </div>
 

@@ -3,9 +3,8 @@
 
 <mapper namespace="Shelter">
 
-    <!--검색어에 따른 보호소 전체 검색(필요물품, 이름, 지역)-->
-    <select id="selectShelterListBySw">
-        select * from shelter full outer join item
+    <select id="selectShelterListBySw" resultType="ShelterDTO" >
+        select * from shelter inner join item on shelter.shelter_id = item.shelter_id
         where item_name like '%' || #{search_word} || '%' or shelter_name like '%' || #{search_word} || '%' or shelter_address like '%' || #{search_word} || '%'
     </select>
 

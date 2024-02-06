@@ -60,6 +60,7 @@
          border: 0;
          border-radius: 20px;
     }
+
     #search_word{
        height:20px;
        text-align:center;
@@ -77,11 +78,11 @@
         border-top: 1px solid rgb(216, 216, 216);
     }
 
- .search-bar {
-    width:200px;
-    position: relative;
-    bottom:21%;
-    left: 17%;
+    .search-bar {
+        width:200px;
+        position: relative;
+        bottom:21%;
+        left: 17%;
     }
 
     .main {

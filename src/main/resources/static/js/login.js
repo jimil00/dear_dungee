@@ -19,15 +19,15 @@
                 "phone": phone,
                 "pw": pw
             }
-        }).done(function (resp) {
+        }).done(function (result) {
 
-//            console.log(resp);
+            console.log(result);
 
-            if (resp == false) {//핸드폰 번호, 비밀번호가 존재하지 않을 때,
+            if (result == false) {//핸드폰 번호, 비밀번호가 존재하지 않을 때,
                 alert("핸드폰 번호 또는 비밀번호가 일치하지 않습니다.");
                 $('#phone').val('');
                 $('#pw').val('');
-            } else if (resp == true) { //핸드폰 번호, 비밀번호가 존재할 때,
+            } else if (result == true) { //핸드폰 번호, 비밀번호가 존재할 때,
                 location.href = "/";
             }
         }).fail(function() {

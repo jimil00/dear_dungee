@@ -34,7 +34,10 @@
 
         </div>
 
-        <div class="main"></div>
+        <div class="main">
+            <div th:if="${session.name == null}">로그인 안함</div>
+            <div th:text="${session.name}"></div>
+        </div>
 
         <div class="footer">
             <hr class="headerHr">

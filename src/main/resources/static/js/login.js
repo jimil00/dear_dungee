@@ -14,6 +14,7 @@
 
         $.ajax({
             url: "/member/login",
+            type  : "POST",
             data: {
                 "phone": phone,
                 "pw": pw

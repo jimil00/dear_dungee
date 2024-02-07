@@ -72,18 +72,49 @@
 
        /* main */
        .main {
-           height: 500px;
+           height: fit-content;
        }
 
-       .search_bar{
+       .search_bar {
            margin:20px;
            display:flex;
        }
+
+        #detail_search {
+              margin-left:10px;
+            }
+
+        #bar{
+            margin-left:25px;
+        }
+
+        #search_word{
+             border-radius: 20px;
+             border: 1px solid rgb(216, 216, 216);
+             width:200px;
+        }
+
+        #swbtn{
+        border: 0;
+        border-radius: 20px;
+        }
 
        .req_header, .req_box{
            display:flex;
            justify-content: space-around;
            margin:20px;
+       }
+
+       .req_txt{
+        border-bottom: 1px solid rgb(216, 216, 216);
+        text-align : center;
+        font-size:larger;
+       }
+
+       .items_box, .region_box{
+        border: 1px solid rgb(216, 216, 216);
+        border-bottom: 1px solid rgb(216, 216, 216);
+        border-radius: 3%;
        }
 
        .cities, .-do {
@@ -92,24 +123,63 @@
            display:block;
        }
 
+       .cities>span,.-do>span{
+        margin-right:5px;
+       }
+
+       .cities>span:hover,.-do>span:hover{
+         color: blue;
+       }
+
        .items{
            margin:20px;
            padding:30px;
+       }
+
+       .items>span{
+        margin-right:5px;
+       }
+
+       .items>span:hover{
+         color: blue;
        }
 
        .result_header{
            margin:20px;
        }
 
+       .search_flexbox{
+        display:flex;
+        justify-content:flex-start;
+        margin:20px;
+        flex-wrap: wrap;
+       }
+
+       .search_results{
+        margin:20px;
+        margin-top:0px;
+       }
+
        .shelter_box{
-           width: 250px;
-           height: 150px;
+           border: 1px solid rgb(216, 216, 216);
+           width: 150px;
+           height: 100px;
            border-radius: 10%;
+           margin:20px;
+           margin-top:0px;
        }
 
        .shel_name,.shel_add{
            margin:10px;
-           margin-top: 35px;
+           margin-top:20px;
+           margin-bottom:20px;
+       }
+       .shel_name:hover{
+           color: blue;
+       }
+
+       .shel_add{
+        font-size:small;
        }
 
     /* footer */

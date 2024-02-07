@@ -4,8 +4,18 @@
 <mapper namespace="Shelter">
 
     <select id="selectShelterListBySw" resultType="ShelterDTO" >
-        select * from shelter inner join item on shelter.shelter_id = item.shelter_id
-        where item_name like '%' || #{search_word} || '%' or shelter_name like '%' || #{search_word} || '%' or shelter_address like '%' || #{search_word} || '%'
+        select
+        shelter_name,
+        shelter_phone,
+        shelter_address,
+        manager_name,
+        manager_phone,
+        pw
+        from shelter inner join item
+        on shelter.shelter_id = item.shelter_id
+        where item_name like '%' #{search_word} '%'
+        or shelter_name like '%' #{search_word} '%'
+        or shelter_address like '%' #{search_word} '%'
     </select>
 
 </mapper>

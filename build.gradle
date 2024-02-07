@@ -29,6 +29,7 @@ dependencies {
 	implementation('org.projectlombok:lombok')
 	annotationProcessor('org.projectlombok:lombok')
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
+	implementation('com.github.pagehelper:pagehelper-spring-boot-starter:1.4.6')
 }
 
 configurations {
@@ -36,6 +37,7 @@ configurations {
 	runtimeClasspath {
 		extendsFrom developmentOnly
 	}
+
 }
 
 configurations {

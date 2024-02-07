@@ -16,7 +16,6 @@ public class ShelterService {
 
     //검색어로 보호소 출력
     public List<ShelterDTO> selectShelterListBySw(String search_word){
-
         return dao.selectShelterListBySw(search_word);
     }
 

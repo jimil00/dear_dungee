@@ -12,21 +12,19 @@
 <div class="container">
     <div class="header">
         <div class="header-left">
-            <div th:if="${#strings.isEmpty(session.name)}">
-                <div class="login">
-                    <a href="/member/toLogin">로그인</a>
-                </div>
-                <div class="signup">
-                    <a href="/member/toSignup">회원가입</a>
-                </div>
+            <div th:block th:if="${#strings.isEmpty(session.name)}">
+                <a href="/member/toLogin">
+                    <div class="login">로그인</div>
+                </a>
+                <a href="/member/toSignup">
+                    <div class="signup">회원가입</div>
+                </a>
             </div>
-            <div th:if="${not #strings.isEmpty(session.name)}">
-                <div class="login">
-                    <a th:href="@{/member/toMyPage}" th:text="|${session.name} 님|"></a>
-                </div>
-                <div class="signup">
-                    <a href="/member/logout">로그아웃</a>
-                </div>
+            <div th:block th:if="${not #strings.isEmpty(session.name)}">
+                <div class="login" th:text="|${session.name} 님|"></div>
+                <a href="/member/logout">
+                    <div class="signup">로그아웃</div>
+                </a>
             </div>
             <div class="search">
                 <span class="material-icons" id="sbtn">search</span>
@@ -47,7 +45,7 @@
 
     </div>
 
-    <div class="main"></div>
+    <div class="main">마이페이지</div>
 
     <div class="footer">
         <hr class="headerHr">

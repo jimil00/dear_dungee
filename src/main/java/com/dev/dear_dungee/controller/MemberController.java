@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
@@ -22,7 +21,7 @@ public class MemberController {
     @Autowired
     private MemberService service;
 
-    // 회원가입 페이지로 이동
+    //회원가입 페이지로 이동
     @RequestMapping("toSignup")
     public String toSignup(Model model) {
 
@@ -43,14 +42,14 @@ public class MemberController {
         return "redirect:/member/toSignupComplete";
     }
 
-    // 회원가입 완료 페이지로 이동
+    //회원가입 완료 페이지로 이동
     @RequestMapping("toSignupComplete")
     public String toSignupComplete(Model model) {
 
         return "member/signupComplete";
     }
 
-    // 로그인 페이지로 이동
+    //로그인 페이지로 이동
     @RequestMapping("toLogin")
     public String toLogin(Model model) {
 
@@ -87,13 +86,24 @@ public class MemberController {
         return result;
     }
 
-    // 비밀번호 재설정 페이지로 이동
+    //로그아웃
+    @RequestMapping("logout")
+	public String logout(String id){
+		session.invalidate();
+		return "redirect:/";
+	}
+    
+    //비밀번호 재설정 페이지로 이동
     @RequestMapping("toPwReset")
     public String toPwReset(Model model) {
 
-        // 임의로 세션 삭제 기능 넣어둠
-        session.invalidate();
-
         return "member/pwReset";
+    }
+
+    // 마이페이지로 이동
+    @RequestMapping("toMyPage")
+    public String toMypage(Model model) {
+
+        return "member/myPage";
     }
 }

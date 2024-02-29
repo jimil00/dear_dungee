@@ -79,8 +79,6 @@ public class MemberController {
 
             MemberDTO dto = service.selectMemberById(id);
             session.setAttribute("name", dto.getName());
-            System.out.println("name");
-
         }
 
         return result;

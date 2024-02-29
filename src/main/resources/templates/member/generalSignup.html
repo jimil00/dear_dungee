@@ -5,6 +5,7 @@
     <title>Home</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link th:href="@{/css/generalSignup.css}" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 </head>
 
 <body>
@@ -14,7 +15,7 @@
     </div>
     <div class="main">
         <div class="main_title">일반 회원</div>
-        <form action="/member/signup" method="post">
+        <form id="frm" action="/member/signup" method="post">
         <div class="main_content">
             <div class="input_div">
                 <div><input type="text" name="name" maxlength="30" placeholder="이름"></div>
@@ -42,79 +43,14 @@
             </div>
             <div class="pwchkResult" id="pwchkResult"></div>
             <div class="signup_div">
-                <button class="signup_btn">회원가입</button>
+                <button class="signup_btn" id="signup_btn">회원가입</button>
             </div>
         </div>
         </form>
     </div>
 </div>
 
-<script>
-    // 핸드폰 번호 숫자만 입력시키는 함수 (이게 꼭 필요할까)
-    // function inputNum(id) {
-    //     let phone = document.getElementById('phone');
-    //     phone.value = phone.value.replace(/[^0-9]/gi, "");
-    // }
+<script type="text/javascript" th:src="@{/js/generalSignup.js}"></script>
 
-    // 핸드폰 번호 유효성 검사 함수
-    let phone = document.getElementById("phone");
-    let phoneResult = document.getElementById("phoneResult");
-
-    phone.onkeyup = function () {
-        let phoneValue = document.getElementById("phone").value;
-        let phoneRegex = /^01\d\d{4}\d{4}$/;
-        let result = phoneRegex.test(phoneValue);
-
-        if (result) {
-            phone.style.border = "2px solid blue";
-            phoneResult.innerHTML = "";
-
-        } else {
-            phone.style.border = "2px solid red";
-            phoneResult.innerHTML = "-을 제외한 휴대폰 번호만 입력해주세요.";
-
-        }
-    }
-
-    // 비밀번호 유효성 검사 함수
-    //  8글자 이상, 영문, 숫자, 특수문자 사용
-    // /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/
-
-    let pw = document.getElementById("pw");
-    let pwResult = document.getElementById("pwResult");
-
-    pw.onkeyup = function () {
-        let pwValue = document.getElementById("pw").value;
-        let pwRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
-        let result = pwRegex.test(pwValue);
-
-        if (result) {
-            pw.style.border = "2px solid blue";
-            pwResult.innerHTML = "";
-
-        } else {
-            pw.style.border = "2px solid red";
-            pwResult.innerHTML = "8자 이상의 영문, 숫자, 특수문자를 사용해주세요.";
-        }
-    }
-
-    // 비밀번호 확인 함수
-    let pwchk = document.getElementById("pwchk");
-    let pwchkResult = document.getElementById("pwchkResult");
-
-    pwchk.onkeyup = function () {
-        let pwValue = document.getElementById("pw").value;
-        let pwchkValue = document.getElementById("pwchk").value;
-
-        if (pwValue == pwchkValue) {
-            pwchk.style.border = "2px solid blue";
-            pwchkResult.innerHTML = "";
-        } else {
-            pwchk.style.border = "2px solid red";
-            pwchkResult.innerHTML = "비밀번호가 일치하지 않습니다.";
-        }
-    };
-
-</script>
 </body>
 </html>

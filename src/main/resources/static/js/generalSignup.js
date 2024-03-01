@@ -65,13 +65,47 @@
 
     // 이거 하는 중
     // 만약 유효성 검사에 맞지 않는다면 회원가입 버튼 비활성화
-    $("#signup_btn").on("click", function () {
-        let phone = document.getElementById("phone");
-        let phoneRegex = /^01\d\d{4}\d{4}$/;
+//    $("#signup_btn").on("click", function () {
+//        let phone = document.getElementById("phone");
+//        let phoneRegex = /^01\d\d{4}\d{4}$/;
+//
+//        if(phone == "" || !phoneRegex.test(phone)) {
+//            console.log("false");
+//            return false;
+//        }else
+//            return true;
+//   });
 
-        if(phone == "" || !phoneRegex.test(phone)) {
-            console.log("false");
-            return false;
-        }else
-            return true;
-   });
+let frm = document.getElementById("frm");
+		frm.onsubmit = function() {
+
+//			let id = document.getElementById("id").value;
+//			let idRegex = /^[a-z0-9_]{8,14}$/;
+//
+//			let idResult = idRegex.test(id.value);
+//
+			let pw = document.getElementById("pw").value;
+//
+			let pwRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+//
+//			let pwResult = pwRegex.test(pw);
+//
+//			let pwchk = document.getElementById("pwchk").value;
+//
+//			let name = document.getElementById("name").value;
+//
+//			let nameRegex = /^[가-힣]{2,5}$/;
+//
+//			let nameResult = nameRegex.test(name);
+
+            let phone = document.getElementById("phone");
+			let phoneValue = document.getElementById("phone").value;
+			let phoneRegex = /^01\d\d{4}\d{4}$/;
+			let phoneResult = phoneRegex.test(phone);
+
+			if (phoneValue == "") {
+                    console.log("submit 방지 테스트");
+                    phone.style.border = "2px solid red";
+                    return false;
+				}
+		}

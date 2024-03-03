@@ -1,17 +1,19 @@
-    // 핸드폰 번호 숫자만 입력시키는 함수 (이게 꼭 필요할까)
+    // 핸드폰 번호 숫자만 입력시키는 함수 (이게 꼭 필요할까?)
     // function inputNum(id) {
     //     let phone = document.getElementById('phone');
     //     phone.value = phone.value.replace(/[^0-9]/gi, "");
     // }
 
     // 핸드폰 번호 유효성 검사 함수
-    let phone = document.getElementById("phone");
-    let phoneResult = document.getElementById("phoneResult");
+//    let phoneResult = document.getElementById("phoneResult");
+
+	let phoneValue = ""; // 초기값 세팅을 해주면?
+	let phoneRegex = /^01\d\d{4}\d{4}$/;
 
     phone.onkeyup = function () {
-        let phoneValue = document.getElementById("phone").value;
-        let phoneRegex = /^01\d\d{4}\d{4}$/;
-        let result = phoneRegex.test(phoneValue);
+        phoneValue = document.getElementById("phone").value;
+          let result = phoneRegex.test(phoneValue);
+          	console.log(phoneValue);
 
         if (result) {
             phone.style.border = "2px solid blue";
@@ -76,6 +78,8 @@
 //            return true;
 //   });
 
+
+//var phoneValue = document.getElementById("phone").value;
 let frm = document.getElementById("frm");
 		frm.onsubmit = function() {
 
@@ -98,13 +102,8 @@ let frm = document.getElementById("frm");
 //
 //			let nameResult = nameRegex.test(name);
 
-            let phone = document.getElementById("phone");
-			let phoneValue = document.getElementById("phone").value;
-			let phoneRegex = /^01\d\d{4}\d{4}$/;
-			let phoneResult = phoneRegex.test(phone);
-
-			if (phoneValue == "") {
-                    console.log("submit 방지 테스트");
+			if (phoneValue == "" || !phoneRegex.test(phoneValue)) {
+                    console.log(phoneValue);
                     phone.style.border = "2px solid red";
                     return false;
 				}

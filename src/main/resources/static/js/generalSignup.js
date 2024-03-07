@@ -4,16 +4,17 @@
     //     phone.value = phone.value.replace(/[^0-9]/gi, "");
     // }
 
-    // 핸드폰 번호 유효성 검사 함수
-//    let phoneResult = document.getElementById("phoneResult");
-
-	let phoneValue = ""; // 초기값 세팅을 해주면?
+	let phoneValue = ""; // 초기값 세팅
 	let phoneRegex = /^01\d\d{4}\d{4}$/;
+	let pwValue = "";
+	let pwRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 
+
+    // 핸드폰 번호 유효성 검사
     phone.onkeyup = function () {
         phoneValue = document.getElementById("phone").value;
-          let result = phoneRegex.test(phoneValue);
-          	console.log(phoneValue);
+        let result = phoneRegex.test(phoneValue);
+        console.log(phoneValue);
 
         if (result) {
             phone.style.border = "2px solid blue";
@@ -26,16 +27,12 @@
         }
     }
 
-    // 비밀번호 유효성 검사 함수
+    // 비밀번호 유효성 검사
     //  8글자 이상, 영문, 숫자, 특수문자 사용
     // /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/
 
-    let pw = document.getElementById("pw");
-    let pwResult = document.getElementById("pwResult");
-
     pw.onkeyup = function () {
-        let pwValue = document.getElementById("pw").value;
-        let pwRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+        pwValue = document.getElementById("pw").value;
         let result = pwRegex.test(pwValue);
 
         if (result) {
@@ -65,8 +62,7 @@
         }
     };
 
-    // 이거 하는 중
-    // 만약 유효성 검사에 맞지 않는다면 회원가입 버튼 비활성화
+    // 유효성 검사에 맞지 않는다면 회원가입 버튼 비활성화
 //    $("#signup_btn").on("click", function () {
 //        let phone = document.getElementById("phone");
 //        let phoneRegex = /^01\d\d{4}\d{4}$/;
@@ -79,18 +75,14 @@
 //   });
 
 
-//var phoneValue = document.getElementById("phone").value;
-let frm = document.getElementById("frm");
-		frm.onsubmit = function() {
+    frm.onsubmit = function() {
 
 //			let id = document.getElementById("id").value;
 //			let idRegex = /^[a-z0-9_]{8,14}$/;
 //
 //			let idResult = idRegex.test(id.value);
 //
-			let pw = document.getElementById("pw").value;
 //
-			let pwRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 //
 //			let pwResult = pwRegex.test(pw);
 //
@@ -107,4 +99,11 @@ let frm = document.getElementById("frm");
                     phone.style.border = "2px solid red";
                     return false;
 				}
+
+				if (pwValue == "" || !pwRegex.test(pwValue)) {
+                                           pw.style.border = "2px solid red";
+                                           return false;
+                                       }
+
+
 		}

@@ -78,7 +78,7 @@
     <div class="search_results" th:each="shel:${slist}">
       <div class="result_main">
         <div class="shelter_box">
-          <div class="shel_name" th:text="${shel.shelter_name}"></div>
+          <div class="shel_name"><a th:href="@{/shelter/toDetail}" th:text="${shel.shelter_name}"></a></div>
           <span class="shel_add" th:text="${shel.shelter_address}"></span>
 
           <!-- <span class="shel_like" th:text="${shel.해당 유저에 대한 보호소 좋아요 여부}">좋아요</span> -->

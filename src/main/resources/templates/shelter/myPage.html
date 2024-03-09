@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link th:href="@{/css/shelter_myPage.css}" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <div class="header-left">
+            <div th:if="${#strings.isEmpty(session.name)}">
+                <div class="login">
+                    <a href="/member/toLogin">로그인</a>
+                </div>
+                <div class="signup">
+                    <a href="/member/toSignup">회원가입</a>
+                </div>
+            </div>
+            <div th:if="${not #strings.isEmpty(session.name)}">
+                <div class="login">
+                    <a th:href="@{/member/toMyPage}" th:text="|${session.name} 님|"></a>
+                </div>
+                <div class="signup">
+                    <a href="/member/logout">로그아웃</a>
+                </div>
+            </div>
+            <div class="search">
+                <span class="material-icons" id="sbtn">search</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <img src="/images/logo_basic.png">
+        </div>
+
+        <hr class="headerHr">
+
+        <div class="search-bar">
+            <form th:action="@{/search/ToSearch}" method="get" id="search-form">
+                <input type="text" name="search_word" id="search_word" placeholder="검색어를 입력해주세요.">
+                <button type="submit" id="swbtn"> ></button>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="main">
+
+        <div class="main-flexbox">
+
+            <div class="my-menu-box">
+                <div>내 정보</div>
+                <div>기부 내역</div>
+                <div>필요 물품 내역</div>
+            </div>
+
+            <div class="my-info-box">
+
+                <div class="shelter-info">
+
+                    <h3>보호소 정보</h3>
+
+                    <div class="info-list">
+                        <a>보호소명</a>
+                        <input type="text"  placeholder="멍냥둥이 보호소">
+                    </div>
+
+                    <div class="info-list">
+                        <a>연락처</a>
+                        <input type="text"  placeholder="010-1234-4567">
+                    </div>
+
+                    <div class="info-list">
+                        <a>주소</a>
+                        <input type="text"  placeholder="동물시 고앵구 댕댕동">
+                    </div>
+
+                </div>
+
+                <div class="manager-info">
+
+                    <h3>관리자 정보</h3>
+
+                    <div class="info-list">
+                        <a>이름</a>
+                        <input type="text"  placeholder="관리자">
+                    </div>
+
+                    <div class="info-list">
+                        <a>비밀번호</a>
+                        <input type="text">
+                    </div>
+
+                    <div class="info-list">
+                        <a>비밀번호 확인</a>
+                        <input type="text">
+                    </div>
+
+                    <div class="info-list">
+                        <a>핸드폰 번호</a>
+                        <input type="text">
+                    </div>
+
+                    <div class="info-list">
+                        <a>인증 번호</a>
+                        <input type="text">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="to_update">
+            <button>회원정보수정</button>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <hr class="headerHr">
+        <div class="footer_flexbox">
+            <div class="biz_info">
+                <span class="info_txt">디얼둥이 | 고양시 강아지동 냥냥 79-59</span>
+                <span class="info_txt">02-7979-5959 | deardungee@admin.kr</span>
+                <span class="info_txt" id="copyright">©deardungee all right reserved.</span>
+            </div>
+            <div class="sns_terms">
+                <div class="sns_icon">
+                    <img src="/images/instagram.png" id="insta">
+                    <img src="/images/facebook.png" id="facebook">
+                    <img src="/images/youtube.png" id="youtube">
+                </div>
+                <div class="terms">
+                    <span id="use_terms">이용약관</span>
+                    <span id="privacy_policy">개인정보처리방침</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" th:src="@{/js/home.js}"></script>
+</body>
+</html>

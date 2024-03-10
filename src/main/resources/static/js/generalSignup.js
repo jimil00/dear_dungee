@@ -4,11 +4,25 @@
     //     phone.value = phone.value.replace(/[^0-9]/gi, "");
     // }
 
-	let phoneValue = ""; // 초기값 세팅
+    //초기값 세팅
+    let usernameValue="";
+	let phoneValue = "";
 	let phoneRegex = /^01\d\d{4}\d{4}$/;
 	let pwValue = "";
 	let pwRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+	let pwchkValue = "";
 
+    // 이름 확인 함수
+    username.onkeyup = function () {
+        usernameValue = document.getElementById("username").value;
+        console.log(usernameValue);
+
+        if (usernameValue=="") {
+            username.style.border = "2px solid red";
+        } else {
+            username.style.border = "2px solid blue";
+        }
+    };
 
     // 핸드폰 번호 유효성 검사
     phone.onkeyup = function () {
@@ -30,7 +44,6 @@
     // 비밀번호 유효성 검사
     //  8글자 이상, 영문, 숫자, 특수문자 사용
     // /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/
-
     pw.onkeyup = function () {
         pwValue = document.getElementById("pw").value;
         let result = pwRegex.test(pwValue);
@@ -46,64 +59,45 @@
     }
 
     // 비밀번호 확인 함수
-    let pwchk = document.getElementById("pwchk");
-    let pwchkResult = document.getElementById("pwchkResult");
-
     pwchk.onkeyup = function () {
-        let pwValue = document.getElementById("pw").value;
-        let pwchkValue = document.getElementById("pwchk").value;
+        pwchkValue = document.getElementById("pwchk").value;
 
-        if (pwValue == pwchkValue) {
-            pwchk.style.border = "2px solid blue";
-            pwchkResult.innerHTML = "";
+        if (pwchkValue=="") {
+            pwchk.style.border = "2px solid red";
+            pwchkResult.innerHTML = "비밀번호를 입력해주세요.";
+        } else if(pwValue == pwchkValue) {
+             pwchk.style.border = "2px solid blue";
+             pwchkResult.innerHTML = "";
         } else {
             pwchk.style.border = "2px solid red";
             pwchkResult.innerHTML = "비밀번호가 일치하지 않습니다.";
         }
     };
 
-    // 유효성 검사에 맞지 않는다면 회원가입 버튼 비활성화
-//    $("#signup_btn").on("click", function () {
-//        let phone = document.getElementById("phone");
-//        let phoneRegex = /^01\d\d{4}\d{4}$/;
-//
-//        if(phone == "" || !phoneRegex.test(phone)) {
-//            console.log("false");
-//            return false;
-//        }else
-//            return true;
-//   });
-
-
+    // 회원가입 버튼 클릭 시 함수
     frm.onsubmit = function() {
 
-//			let id = document.getElementById("id").value;
-//			let idRegex = /^[a-z0-9_]{8,14}$/;
-//
-//			let idResult = idRegex.test(id.value);
-//
-//
-//
-//			let pwResult = pwRegex.test(pw);
-//
-//			let pwchk = document.getElementById("pwchk").value;
-//
-//			let name = document.getElementById("name").value;
-//
-//			let nameRegex = /^[가-힣]{2,5}$/;
-//
-//			let nameResult = nameRegex.test(name);
+        if(usernameValue=="") {
+            username.onkeyup();
+        }
 
-			if (phoneValue == "" || !phoneRegex.test(phoneValue)) {
-                    console.log(phoneValue);
-                    phone.style.border = "2px solid red";
-                    return false;
-				}
-
-				if (pwValue == "" || !pwRegex.test(pwValue)) {
-                                           pw.style.border = "2px solid red";
-                                           return false;
-                                       }
-
-
+		if (!phoneRegex.test(phoneValue)) {
+            console.log(phoneValue);
+            phone.onkeyup();
 		}
+
+		if (!pwRegex.test(pwValue)) {
+             console.log(pwValue);
+             pw.onkeyup();
+		}
+
+		if (pwchkValue=="") {
+             console.log(pwchkValue);
+             pwchk.onkeyup();
+		}
+
+		if (usernameValue=="" || !phoneRegex.test(phoneValue) || !pwRegex.test(pwValue) || pwchkValue=="" || pwValue != pwchkValue) {
+             return false;
+		}
+
+	}

@@ -127,9 +127,15 @@
         margin-right:5px;
        }
 
-       .cities>span:hover,.-do>span:hover{
-         color: blue;
+       .word {
+        border:none;
+        background: transparent;
        }
+
+       .word:hover{
+          color: blue;
+       }
+
 
        .items{
            margin:20px;
@@ -138,10 +144,6 @@
 
        .items>span{
         margin-right:5px;
-       }
-
-       .items>span:hover{
-         color: blue;
        }
 
        .result_header{

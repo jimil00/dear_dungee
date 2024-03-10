@@ -11,11 +11,12 @@
     <div class="header-left">
       <div class="login">로그인</div>
       <div class="signup">회원가입</div>
-
     </div>
+
     <div class="header-right">
       <img src="/images/로고_기본.png">
     </div>
+
     <hr class="headerHr">
   </div>
 
@@ -30,48 +31,64 @@
       </div>
     </div>
 
+
+    <!--검색 조건이 선택된 상태에서 검색어 입력하면, 검색 조건과 검색어 둘다 컨트롤러로 이동되어야 함-->
     <div class="requirements">
+
+      <form th:action="@{/search/ToSearch}" method="get">
 
       <div class="req_box">
 
         <div class="region_box">
+
           <div class="req_txt">지역별</div>
+
           <div class="cities">
-            <span>서울</span>
-            <span>경기</span>
-            <span>인천</span>
-            <span>대전</span>
-            <span>광주</span>
-            <span>대구</span>
-            <span>부산</span>
-            <span>세종</span>
-            <span>울산</span>
+              <input class="word" type="submit" name="search_word" th:value="서울">
+              <input class="word" type="submit" name="search_word" th:value="경기">
+              <input class="word" type="submit" name="search_word" th:value="인천">
+              <input class="word" type="submit" name="search_word" th:value="대전">
+              <input class="word" type="submit" name="search_word" th:value="광주">
+              <input class="word" type="submit" name="search_word" th:value="대구">
+              <input class="word" type="submit" name="search_word" th:value="부산">
+              <input class="word" type="submit" name="search_word" th:value="세종">
+              <input class="word" type="submit" name="search_word" th:value="울산">
           </div>
+
           <div class="-do">
-            <span>강원도</span>
-            <span>충청북도</span>
-            <span>충청남도</span>
-            <span>전라북도</span>
-            <span>전라남도</span>
-            <span>경상북도</span>
-            <span>경상남도</span>
-            <span>제주</span>
+              <input class="word" type="submit" name="search_word" th:value="강원도">
+              <input class="word" type="submit" name="search_word" th:value="충청북도">
+              <input class="word" type="submit" name="search_word" th:value="충청남도">
+              <input class="word" type="submit" name="search_word" th:value="전라북도">
+              <input class="word" type="submit" name="search_word" th:value="전라남도">
+              <input class="word" type="submit" name="search_word" th:value="경상북도">
+              <input class="word" type="submit" name="search_word" th:value="경상남도">
+              <input class="word" type="submit" name="search_word" th:value="제주">
           </div>
+
         </div>
 
         <div class="items_box">
+
           <div class="req_txt">필요물품별</div>
+
           <div class="items">
-            <span>사료/간식</span>
-            <span>장난감</span>
-            <span>이불</span>
-            <span>기타</span>
+              <input class="word" type="submit" name="search_word" th:value="사료">
+              <input class="word" type="submit" name="search_word" th:value="간식">
+              <input class="word" type="submit" name="search_word" th:value="장난감">
+              <input class="word" type="submit" name="search_word" th:value="이불">
+              <input class="word" type="submit" name="search_word" th:value="기타">
           </div>
         </div>
+
       </div>
+
+      </form>
     </div>
 
-    <div class="result_header">검색 결과 n개</div>
+    <div class="result_header">
+      <a>검색 결과 n개</a>
+    </div>
 
     <div class="search_flexbox">
 

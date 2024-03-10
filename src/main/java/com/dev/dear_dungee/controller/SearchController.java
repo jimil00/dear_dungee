@@ -34,6 +34,8 @@ public class SearchController {
     //public PageInfo<>
 
 
-    //검색 필터링
+    //검색 필터링(지역, 필요물품)
+    //검색어랑 검색조건이 같이 넘어가야 함 / 다중검색조건은 여러 개의 값이 넘어가야 함 -> list /
+
 
 }

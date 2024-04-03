@@ -16,6 +16,33 @@
         where item_name like '%' #{search_word} '%'
         or shelter_name like '%' #{search_word} '%'
         or shelter_address like '%' #{search_word} '%'
+
+        <!--
+        //키워드가 없을 때는 검색어만 sql 통과
+  <choose>
+         <when test = "#{keyword}==null">
+            where item_name like '%' #{search_word} '%'
+            or shelter_name like '%' #{search_word} '%'
+            or shelter_address like '%' #{search_word} '%'
+        </when>
+
+//키워드가 있을 때는 지역인지 필요물품인지 구분 후에 검색어와 키워드 둘다 sql 통과
+        <when test="#{keyword} == 'R'>
+            where item_name like '%' #{search_word} '%'
+            or shelter_name like '%' #{search_word} '%'
+            and shelter_address like '%' #{keyword} '%'
+        </when>
+
+     <when test="#{keyword} == 'N'>
+            where item_name like '%' #{keyword} '%'
+            and shelter_name like '%' #{search_word} '%'
+            or shelter_address like '%'  #{search_word} '%'
+        </when>
+
+        </choose>
+
+        -->
+
     </select>
 
 </mapper>

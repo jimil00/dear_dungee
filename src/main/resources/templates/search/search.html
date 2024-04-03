@@ -87,7 +87,9 @@
     </div>
 
     <div class="result_header">
-      <a>검색 결과 n개</a>
+      검색 결과
+        <a th:text="${#lists.size(slist)}"></a>
+        개
     </div>
 
     <div class="search_flexbox">

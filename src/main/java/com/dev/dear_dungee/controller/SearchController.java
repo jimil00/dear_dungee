@@ -15,11 +15,13 @@ public class SearchController {
     @Autowired
     private ShelterService shelservice;
 
-    //검색 페이지로 이동
+    //검색 페이지로 이동 //검색 조건 추가
     @RequestMapping("ToSearch")
-    public String ToSearch(String search_word, Model model) {
+    public String ToSearch(String search_word, String keyword ,Model model) {
 
         model.addAttribute("search_word", search_word);
+
+        model.addAttribute("keyword", keyword);
 
         //보호소 리스트 출력
        List<ShelterDTO> slist = shelservice.selectShelterListBySw(search_word);

@@ -21,21 +21,19 @@
   </div>
 
   <div class="main">
+
+      <form th:action="@{/search/ToSearch}" method="get">
+
     <div class="search_bar">
       <div id="detail_search">상세검색</div>
       <div id="bar">
-        <form th:action="@{/search/ToSearch}" method="get">
           <input type="text" name="search_word" id="search_word">
           <button type="submit" id="swbtn"> > </button>
-        </form>
       </div>
     </div>
 
 
-    <!--검색 조건이 선택된 상태에서 검색어 입력하면, 검색 조건과 검색어 둘다 컨트롤러로 이동되어야 함-->
     <div class="requirements">
-
-      <form th:action="@{/search/ToSearch}" method="get">
 
       <div class="req_box">
 
@@ -44,26 +42,58 @@
           <div class="req_txt">지역별</div>
 
           <div class="cities">
-              <input class="word" type="submit" name="search_word" th:value="서울">
-              <input class="word" type="submit" name="search_word" th:value="경기">
-              <input class="word" type="submit" name="search_word" th:value="인천">
-              <input class="word" type="submit" name="search_word" th:value="대전">
-              <input class="word" type="submit" name="search_word" th:value="광주">
-              <input class="word" type="submit" name="search_word" th:value="대구">
-              <input class="word" type="submit" name="search_word" th:value="부산">
-              <input class="word" type="submit" name="search_word" th:value="세종">
-              <input class="word" type="submit" name="search_word" th:value="울산">
+              <input class="form-check-input"  id="region1" type="radio" name="region" th:value="서울">
+              <label class="form-check-label">서울</label>
+
+              <input class="form-check-input" id="region2" type="radio" name="region" th:value="경기">
+              <label class="form-check-label">경기</label>
+
+              <input class="form-check-input" id="region3" type="radio" name="region" th:value="인천">
+              <label class="form-check-label">인천</label>
+
+              <input class="form-check-input" id="region4" type="radio" name="region" th:value="대전">
+              <label class="form-check-label">대전</label>
+
+              <input class="form-check-input"  id="region5" type="radio" name="region" th:value="광주">
+              <label class="form-check-label">광주</label>
+
+              <input class="form-check-input"  id="region6" type="radio" name="region" th:value="대구">
+              <label class="form-check-label">대구</label>
+
+              <input class="form-check-input" id="region7" type="radio" name="region" th:value="부산">
+              <label class="form-check-label">부산</label>
+
+              <input class="form-check-input" id="region8" type="radio" name="region" th:value="세종">
+              <label class="form-check-label">세종</label>
+
+              <input class="form-check-input" id="region9" type="radio" name="region" th:value="울산">
+              <label class="form-check-label">울산</label>
           </div>
 
           <div class="-do">
-              <input class="word" type="submit" name="search_word" th:value="강원도">
-              <input class="word" type="submit" name="search_word" th:value="충청북도">
-              <input class="word" type="submit" name="search_word" th:value="충청남도">
-              <input class="word" type="submit" name="search_word" th:value="전라북도">
-              <input class="word" type="submit" name="search_word" th:value="전라남도">
-              <input class="word" type="submit" name="search_word" th:value="경상북도">
-              <input class="word" type="submit" name="search_word" th:value="경상남도">
-              <input class="word" type="submit" name="search_word" th:value="제주">
+              <input class="form-check-input"  id="region10" type="radio" name="region" th:value="강원도">
+              <label class="form-check-label">강원도</label>
+
+              <input class="form-check-input" id="region11" type="radio" name="region" th:value="충청북도">
+              <label class="form-check-label">충청북도</label>
+
+              <input class="form-check-input" id="region12" type="radio" name="region" th:value="충청남도">
+              <label class="form-check-label">충청남도</label>
+
+              <input class="form-check-input" id="region13" type="radio" name="region" th:value="전라북도">
+              <label class="form-check-label">전라북도</label>
+
+              <input class="form-check-input" id="region14" type="radio" name="region" th:value="전라남도">
+              <label class="form-check-label">전라남도</label>
+
+              <input class="form-check-input" id="region15" type="radio" name="region" th:value="경상북도">
+              <label class="form-check-label">경상북도</label>
+
+              <input class="form-check-input" id="region16" type="radio" name="region" th:value="경상남도">
+              <label class="form-check-label">경상남도</label>
+
+              <input class="form-check-input" id="region17" type="radio" name="region" th:value="제주">
+              <label class="form-check-label">제주</label>
           </div>
 
         </div>
@@ -73,18 +103,24 @@
           <div class="req_txt">필요물품별</div>
 
           <div class="items">
-              <input class="word" type="submit" name="search_word" th:value="사료">
-              <input class="word" type="submit" name="search_word" th:value="간식">
-              <input class="word" type="submit" name="search_word" th:value="장난감">
-              <input class="word" type="submit" name="search_word" th:value="이불">
-              <input class="word" type="submit" name="search_word" th:value="기타">
+              <input class="form-check-input" id="item1" type="radio"  name="item" th:value="1">
+              <label  class="form-check-label">사료/간식</label>
+
+              <input class="form-check-input" id="item2"  type="radio" name="item" th:value="2">
+              <label  class="form-check-label">장난감</label>
+
+              <input class="form-check-input" id="item3"  type="radio" name="item" th:value="3">
+              <label  class="form-check-label">이불</label>
+
+              <input class="form-check-input" id="item4" type="radio"  name="item" th:value="4">
+              <label class="form-check-label">기타</label>
           </div>
         </div>
 
       </div>
 
-      </form>
     </div>
+
 
     <div class="result_header">
       검색 결과
@@ -99,13 +135,12 @@
         <div class="shelter_box">
           <div class="shel_name"><a th:href="@{/shelter/toDetail}" th:text="${shel.shelter_name}"></a></div>
           <span class="shel_add" th:text="${shel.shelter_address}"></span>
-
-          <!-- <span class="shel_like" th:text="${shel.해당 유저에 대한 보호소 좋아요 여부}">좋아요</span> -->
-
         </div>
       </div>
       </div>
     </div>
+
+      </form>
 
   </div>
 

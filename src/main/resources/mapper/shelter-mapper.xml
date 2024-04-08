@@ -3,7 +3,7 @@
 
 <mapper namespace="Shelter">
 
-    <select id="selectShelterListBySw" resultType="ShelterDTO" >
+    <select id="selectShelterListBySw" resultType="ShelterDTO" parameterType="SearchFilterDTO">
         select
         shelter_name,
         shelter_phone,
@@ -13,36 +13,40 @@
         pw
         from shelter inner join item
         on shelter.shelter_id = item.shelter_id
-        where item_name like '%' #{search_word} '%'
-        or shelter_name like '%' #{search_word} '%'
-        or shelter_address like '%' #{search_word} '%'
-
-        <!--
-        //키워드가 없을 때는 검색어만 sql 통과
-  <choose>
-         <when test = "#{keyword}==null">
-            where item_name like '%' #{search_word} '%'
-            or shelter_name like '%' #{search_word} '%'
-            or shelter_address like '%' #{search_word} '%'
-        </when>
-
-//키워드가 있을 때는 지역인지 필요물품인지 구분 후에 검색어와 키워드 둘다 sql 통과
-        <when test="#{keyword} == 'R'>
-            where item_name like '%' #{search_word} '%'
-            or shelter_name like '%' #{search_word} '%'
-            and shelter_address like '%' #{keyword} '%'
-        </when>
-
-     <when test="#{keyword} == 'N'>
-            where item_name like '%' #{keyword} '%'
-            and shelter_name like '%' #{search_word} '%'
-            or shelter_address like '%'  #{search_word} '%'
-        </when>
-
-        </choose>
-
-        -->
-
+        <where>
+             <choose>
+                <when test="search_word == null and region != null">
+                    shelter_address regexp <foreach item="region" collection="region.split(',')"  separator="||" >
+                    #{region} </foreach>
+                </when>
+                <when test="search_word == null and item != null">
+                   category_id in <foreach item="item" collection="item" open="(" close=")" separator="," >
+                        #{item} </foreach>
+                </when>
+                 <when test="region != null and item == null">
+                     shelter_name like '%' #{search_word} '%'
+                     and shelter_address like '%' #{region} '%'
+                 </when>
+                 <when test="item != null and region == null">
+                     shelter_name like '%' #{search_word} '%'
+                     and category_id in (#{item})
+                 </when>
+                 <when test="item != null and region != null">
+                     shelter_address like '%' #{region} '%'
+                     and category_id in (#{item})
+                 </when>
+                 <when test="item != null and region != null and search_word != null">
+                     shelter_name like '%' #{search_word} '%'
+                     and shelter_address like '%' #{region} '%'
+                     and category_id in (#{item})
+                 </when>
+                <otherwise>
+                     item_name like '%' #{search_word} '%'
+                     or shelter_name like '%' #{search_word} '%'
+                     or shelter_address like '%' #{search_word} '%'
+                 </otherwise>
+            </choose>
+        </where>
     </select>
 
 </mapper>

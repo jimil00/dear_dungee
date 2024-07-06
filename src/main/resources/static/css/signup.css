@@ -1,0 +1,169 @@
+@font-face {
+     font-family: 'SeoulNamsanM';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulNamsanM.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+ }
+
+ * {
+     font-family: 'SeoulNamsanM';
+     box-sizing: border-box;
+ }
+
+ div {
+     border: 1px solid black;
+ }
+
+ .container {
+     margin: auto;
+     width: 978px;
+     overflow: hidden;
+ }
+
+ .header {
+     height: 180px;
+ }
+
+ .header-left, .test {
+     width: 30%;
+     height: 100%;
+     float: left;
+ }
+
+ .login,
+ .signup,
+ .search {
+     position: relative;
+     width: 21%;
+     height: 100%;
+     float: left;
+     padding-top: 150px;
+     font-size: 17px;
+     font-weight: bold;
+ }
+
+.material-icons {
+    position: absolute;
+    top: 150px;
+    left: 15px;
+    font-size: 22px;
+}
+#search_word, #swbtn {
+    display:none;
+     border: 0;
+     border-radius: 20px;
+}
+
+#search_word{
+   height:20px;
+   text-align:center;
+}
+
+ .header-right {
+     position: relative;
+     width: 70%;
+     height: 100%;
+     float: right;
+ }
+
+ .header-right>img {
+     position: absolute;
+     height: 100%;
+     left: 103px;
+ }
+
+ #headerHr {
+     height: 1px;
+     border-top: 1px solid rgb(216, 216, 216);
+ }
+
+.search-bar {
+    width:200px;
+    position: relative;
+    bottom:21%;
+    left: 17%;
+}
+
+.main {
+    height: 500px;
+}
+
+.main_title {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.main_content {
+    display: flex;
+    justify-content: center;
+    /* 자식 요소를 수평(가로) 기준으로 가운데 정렬시킴 */
+    align-items: center;
+    /* 자식 요소를 수직(세로) 기준으로 가운데 정렬시킴 */
+}
+
+.main_content>div {
+    height: 200px;
+    width: 200px;
+}
+
+.general {
+    float: left;
+}
+
+.shelter {
+    float: right;
+    margin-left: 40px;
+}
+
+[class$="icon"] {
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.material-symbols-outlined {
+    font-size: 200px;
+}
+
+[class$="text"] {
+    height: 30%;
+    font-size: 20px;
+    text-align: center;
+}
+
+.footer_flexbox {
+     height: 100%;
+     display:flex;
+     justify-content: space-between;
+ }
+ .info_txt{
+     display:block;
+     text-align: left;
+ }
+ #copyright{
+     color: grey;
+     font-size: small;
+ }
+ .sns_terms{
+     text-align: right;
+ }
+ .sns_icon {
+     display:inline;
+     height:50px;
+     width:auto;
+ }
+ .sns_icon> img{
+     height:20px;
+     width:auto;
+ }
+ .terms> span{
+     font-size: small;
+     text-decoration: underline;
+ }
+
+ a{
+   color: black;
+ }

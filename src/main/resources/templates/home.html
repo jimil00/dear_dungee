@@ -11,7 +11,7 @@
 
 <div class="container">
     <div class="header">
-        <div class="header-left">
+        <div class="header_left">
             <div th:if="${#strings.isEmpty(session.name)}">
                 <div class="login">
                     <a href="/member/toLogin">로그인</a>
@@ -21,36 +21,46 @@
                 </div>
             </div>
             <div th:if="${not #strings.isEmpty(session.name)}">
-                <div class="login">
+                <div class="login"> <!--클래스명 수정해야함-->
                     <a th:href="@{/member/toMyPage}" th:text="|${session.name} 님|"></a>
                 </div>
-                <div class="signup">
+                <div class="signup"> <!--클래스명 수정해야함-->
                     <a href="/member/logout">로그아웃</a>
                 </div>
             </div>
-            <div class="search">
-                <span class="material-icons" id="sbtn">search</span>
-            </div>
         </div>
-        <div class="header-right">
+        <div class="header_center">
             <img src="/images/logo_basic.png">
         </div>
-
-        <hr class="headerHr">
-
-        <div class="search-bar">
-            <form th:action="@{/search/ToSearch}" method="get" id="search-form">
-                <input type="text" name="search_word" id="search_word" placeholder="검색어를 입력해주세요.">
-                <button type="submit" id="swbtn"> ></button>
-            </form>
+        <div class="header_right">
+            <!--            <div class="search">-->
+            <div class="search_box">
+                <form th:action="@{/search/ToSearch}" id="search_form" method="get">
+                    <input class="search_text" name="search_word" id="search_word" type="text"
+                           placeholder="검색어를 입력해 주세요.">
+                    <button class="search_btn" type="submit">
+                        <span class="material-icons">search</span>
+                    </button>
+                </form>
+            </div>
+            <!--            </div>-->
         </div>
 
+
+        <!-- <div class="search_bar">
+             <form th:action="@{/search/ToSearch}" method="get" id="search_form">
+                 <input type="text" name="search_word" id="search_word" placeholder="검색어를 입력해주세요.">
+                 <button type="submit" id="swbtn"> ></button>
+             </form>
+         </div>-->
+
     </div>
+    <hr>
 
     <div class="main"></div>
 
     <div class="footer">
-        <hr class="headerHr">
+        <hr>
         <div class="footer_flexbox">
             <div class="biz_info">
                 <span class="info_txt">디얼둥이 | 고양시 강아지동 냥냥 79-59</span>

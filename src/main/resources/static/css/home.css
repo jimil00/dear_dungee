@@ -1,122 +1,140 @@
-    @font-face {
-         font-family: 'SeoulNamsanM';
-         src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulNamsanM.woff') format('woff');
-         font-weight: normal;
-         font-style: normal;
-     }
+@font-face {
+ font-family: 'SeoulNamsanM';
+ src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulNamsanM.woff') format('woff');
+ font-weight: normal;
+ font-style: normal;
+}
 
-     * {
-         font-family: 'SeoulNamsanM';
-         box-sizing: border-box;
-     }
+* {
+ font-family: 'SeoulNamsanM';
+ box-sizing: border-box;
+}
 
-     div {
-         /* border: 1px solid black; */
-     }
+div {
+ /*border: 1px solid black;*/
+}
 
-     .container {
-         margin: auto;
-         width: 978px;
-         overflow: hidden;
-     }
+.container {
+ width: 978px;
+ margin: auto;
+ overflow: hidden;
+}
 
-     .header {
-         height: 180px;
-     }
+.header {
+ height: 180px;
+}
 
-     .header-left, .test {
-         width: 30%;
-         height: 100%;
-         float: left;
-     }
+.header_left {
+ width: 30%;
+ height: 100%;
+ float: left;
+}
 
-     .login,
-     .signup,
-     .search {
-         position: relative;
-         width: 21%;
-         height: 100%;
-         float: left;
-         padding-top: 150px;
-         font-size: 17px;
-         font-weight: bold;
-     }
+.login,
+.signup {
+ float: left;
+ font-size: 17px;
+ font-weight: bold;
+ position: relative;
+ top: 165px;
+}
 
-    .material-icons {
-        position: absolute;
-        top: 150px;
-        left: 15px;
-        font-size: 22px;
-    }
-    #search_word, #swbtn {
-        display:none;
-         border: 0;
-         border-radius: 20px;
-    }
+.signup {
+margin-left: 15px;
+}
 
-    #search_word{
-       height:20px;
-       text-align:center;
-    }
+.header_center {
+ width: 40%;
+ height: 100%;
+ float: left;
+ display: flex;
+ justify-content: center;
+ /* 자식 요소를 수평(가로) 기준으로 가운데 정렬시킴 */
+ align-items: center;
+ /* 자식 요소를 수직(세로) 기준으로 가운데 정렬시킴 */
+}
 
-     .header-right {
-         position: relative;
-         width: 70%;
-         height: 100%;
-         float: right;
-     }
+.header_center>img {
+ /*position: absolute;*/
+ height: 200px;
+ /*left: 103px;*/
+}
 
-     .header-right>img {
-         position: absolute;
-         height: 100%;
-         left: 103px;
-     }
+.header_right {
+width: 30%;
+height: 100%;
+float: left;
+}
 
-     #headerHr {
-         height: 1px;
-         border-top: 1px solid rgb(216, 216, 216);
-     }
+.search_box {
+position: relative;
+top: 152px;
+height: 30px;
+width: 100%;
+border-radius: 5px;
+border: 1px solid black;
+}
 
-    .search-bar {
-        width:200px;
-        position: relative;
-        bottom:21%;
-        left: 17%;
-    }
+.search_text {
+position: relative;
+top: 5px;
+left: 5px;
+float: left;
+border: none;
+outline: none;
+font-size: 17px;
+width: 85%;
+}
 
-    .main {
-        height: 500px;
-    }
+.search_btn {
+position: relative;
+background-color: #ffffff;
+width: 13%;
+height: 28px;
+border: none;
+cursor : pointer;
+}
 
-  .footer_flexbox {
-         height: 100%;
-         display:flex;
-         justify-content: space-between;
-     }
-     .info_txt{
-         display:block;
-         text-align: left;
-     }
-     #copyright{
-         color: grey;
-         font-size: small;
-     }
-     .sns_terms{
-         text-align: right;
-     }
-     .sns_icon {
-         display:inline;
-         height:50px;
-         width:auto;
-     }
-     .sns_icon> img{
-         height:20px;
-         width:auto;
-     }
-     .terms> span{
-         font-size: small;
-         text-decoration: underline;
-     }
+.material-icons {
+position: relative;
+top: 2px;
+left: 8px;
+}
 
-     a{
-       color: black;
+.main {
+height: 500px;
+}
+
+.footer_flexbox {
+ height: 100%;
+ display:flex;
+ justify-content: space-between;
+}
+.info_txt{
+ display:block;
+ text-align: left;
+}
+#copyright{
+ color: grey;
+ font-size: small;
+}
+.sns_terms{
+ text-align: right;
+}
+.sns_icon {
+ display:inline;
+ height:50px;
+ width:auto;
+}
+.sns_icon> img{
+ height:20px;
+ width:auto;
+}
+.terms>span{
+ font-size: small;
+ text-decoration: underline;
+}
+
+a{
+color: black;
+}

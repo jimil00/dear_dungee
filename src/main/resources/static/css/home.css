@@ -15,7 +15,7 @@ div {
 }
 
 .container {
-    width: 978px;
+    width: 1280px;
     margin: auto;
     overflow: hidden;
 }
@@ -31,16 +31,27 @@ div {
 }
 
 .login,
-.signup {
+.signup,
+.logout {
     position: relative;
     top: 165px;
+    left: 4px;
     float: left;
     font-size: 17px;
-    font-weight: bold;
 }
 
-.signup {
+.signup,
+.logout {
     margin-left: 15px;
+}
+
+.header_a{
+    color: black;
+    text-decoration-line: none;
+}
+
+.header_a:hover {
+    font-weight: bold;
 }
 
 .header_center {
@@ -54,7 +65,7 @@ div {
     /* 자식 요소를 수직(세로) 기준으로 가운데 정렬시킴 */
 }
 
-.header_center>img {
+.logo {
     height: 200px;
 }
 
@@ -64,8 +75,8 @@ div {
     float: left;
 }
 
-.search_box {
-    width: 100%;
+.search {
+    width: 99%;
     height: 30px;
     position: relative;
     top: 152px;
@@ -74,7 +85,7 @@ div {
 }
 
 .search_text {
-    width: 85%;
+    width: 86%;
     position: relative;
     top: 5px;
     left: 5px;
@@ -85,8 +96,12 @@ div {
 }
 
 .search_btn {
-    width: 13%;
-    height: 28px;
+    width: 10%;
+    height: 23px;
+    float: right;
+    position: relative;
+    top: 2px;
+    right: 5px;
     background-color: #ffffff;
     border: none;
     cursor : pointer;
@@ -94,12 +109,16 @@ div {
 
 .material-icons {
     position: relative;
-    top: 2px;
-    left: 8px;
+    left: 7px;
+    bottom: 1px;
 }
 
 .main {
     height: 500px;
+}
+
+.footer {
+    height: 80px;
 }
 
 .footer_flexbox {
@@ -108,9 +127,15 @@ div {
     justify-content: space-between;
 }
 
-.info_txt{
+.info_text{
     display:block;
     text-align: left;
+    font-size: 14px;
+}
+
+#info_text_phone{
+    position: relative;
+    top: 3px;
 }
 
 #copyright{
@@ -121,6 +146,7 @@ div {
 .sns_terms{
     text-align: right;
 }
+
 .sns_icon {
     width:auto;
     height:50px;
@@ -129,13 +155,16 @@ div {
 
 .sns_icon> img{
     width:auto;
-    height:20px;
-}
-.terms>span{
-    `font-size: small;
-    text-decoration: underline;`
+    height:30px;
 }
 
-a{
-    color: black;
+.terms>span{
+    font-size: small;
+    position: relative;
+    top: 3px;
+}
+
+hr {
+    height: 1px;
+    border-top: 1px solid rgb(216, 216, 216);
 }

@@ -14,27 +14,26 @@
         <div class="header_left">
             <div th:if="${#strings.isEmpty(session.name)}">
                 <div class="login">
-                    <a href="/member/toLogin">로그인</a>
+                    <a class="header_a" href="/member/toLogin">로그인</a>
                 </div>
                 <div class="signup">
-                    <a href="/member/toSignup">회원가입</a>
+                    <a class="header_a" href="/member/toSignup">회원가입</a>
                 </div>
             </div>
             <div th:if="${not #strings.isEmpty(session.name)}">
-                <div class="login"> <!--클래스명 수정해야함-->
-                    <a th:href="@{/member/toMyPage}" th:text="|${session.name} 님|"></a>
+                <div class="login">
+                    <a class="header_a" th:href="@{/member/toMyPage}" th:text="|${session.name} 님|"></a>
                 </div>
-                <div class="signup"> <!--클래스명 수정해야함-->
-                    <a href="/member/logout">로그아웃</a>
+                <div class="logout">
+                    <a class="header_a" href="/member/logout">로그아웃</a>
                 </div>
             </div>
         </div>
         <div class="header_center">
-            <img src="/images/logo_basic.png">
+            <a href="/"><img class="logo" src="/images/logo_basic.png"></a>
         </div>
         <div class="header_right">
-            <!--            <div class="search">-->
-            <div class="search_box">
+            <div class="search">
                 <form th:action="@{/search/ToSearch}" id="search_form" method="get">
                     <input class="search_text" name="search_word" id="search_word" type="text"
                            placeholder="검색어를 입력해 주세요.">
@@ -43,16 +42,7 @@
                     </button>
                 </form>
             </div>
-            <!--            </div>-->
         </div>
-
-
-        <!-- <div class="search_bar">
-             <form th:action="@{/search/ToSearch}" method="get" id="search_form">
-                 <input type="text" name="search_word" id="search_word" placeholder="검색어를 입력해주세요.">
-                 <button type="submit" id="swbtn"> ></button>
-             </form>
-         </div>-->
 
     </div>
     <hr>
@@ -63,9 +53,9 @@
         <hr>
         <div class="footer_flexbox">
             <div class="biz_info">
-                <span class="info_txt">디얼둥이 | 고양시 강아지동 냥냥 79-59</span>
-                <span class="info_txt">02-7979-5959 | deardungee@admin.kr</span>
-                <span class="info_txt" id="copyright">©deardungee all right reserved.</span>
+                <div class="info_text">디얼둥이 | 고양시 강아지동 냥냥 79-59</div>
+                <div class="info_text" id="info_text_phone">02-7979-5959 | deardungee@admin.kr</div>
+                <div class="info_text" id="copyright">©deardungee all right reserved.</div>
             </div>
             <div class="sns_terms">
                 <div class="sns_icon">

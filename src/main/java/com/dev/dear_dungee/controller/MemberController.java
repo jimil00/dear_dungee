@@ -25,7 +25,21 @@ public class MemberController {
     @RequestMapping("toSignup")
     public String toSignup(Model model) {
 
+        return "member/signup";
+    }
+
+    //일반 회원가입 페이지로 이동
+    @RequestMapping("toGeneralSignup")
+    public String toGeneralSignup(Model model) {
+
         return "member/generalSignup";
+    }
+
+    //보호소 회원가입 페이지로 이동
+    @RequestMapping("toShelterSignup")
+    public String toShelterSignup(Model model) {
+
+        return "member/shelterSignup";
     }
 
     //회원가입
@@ -54,6 +68,13 @@ public class MemberController {
     public String toLogin(Model model) {
 
         return "member/login";
+    }
+
+    //카카오 로그인 페이지로 이동
+    @RequestMapping("toKakaoLogin")
+    public String toKakaoLogin(Model model) {
+
+        return "member/kakaoLogin";
     }
 
     //로그인
@@ -86,11 +107,11 @@ public class MemberController {
 
     //로그아웃
     @RequestMapping("logout")
-	public String logout(String id){
-		session.invalidate();
-		return "redirect:/";
-	}
-    
+    public String logout(String id) {
+        session.invalidate();
+        return "redirect:/";
+    }
+
     //비밀번호 재설정 페이지로 이동
     @RequestMapping("toPwReset")
     public String toPwReset(Model model) {
@@ -98,7 +119,7 @@ public class MemberController {
         return "member/pwReset";
     }
 
-    // 마이페이지로 이동
+    //마이페이지로 이동
     @RequestMapping("toMyPage")
     public String toMypage(Model model) {
 

@@ -8,7 +8,7 @@
 * {
     font-family: 'SeoulNamsanM';
     box-sizing: border-box;
-    }
+}
 
 div {
     /*border: 1px solid black;*/
@@ -45,7 +45,7 @@ div {
     margin-left: 15px;
 }
 
-.header_a{
+.header_a {
     color: black;
     text-decoration-line: none;
 }
@@ -127,41 +127,40 @@ div {
     justify-content: space-between;
 }
 
-.info_text{
+.info_text {
     display:block;
     text-align: left;
     font-size: 14px;
 }
 
-#info_text_phone{
+#info_text_phone {
     position: relative;
-    top: 3px;
+    top: 5px;
 }
 
-#copyright{
+#copyright {
     color: grey;
     font-size: small;
+    position: relative;
+    top: 4px;
 }
 
-.sns_terms{
+.sns_terms {
     text-align: right;
 }
 
 .sns_icon {
     width:auto;
-    height:50px;
-    display:inline;
+    height:37px;
 }
 
-.sns_icon> img{
+.sns_icon>img {
     width:auto;
     height:30px;
 }
 
-.terms>span{
+.terms>span {
     font-size: small;
-    position: relative;
-    top: 3px;
 }
 
 hr {

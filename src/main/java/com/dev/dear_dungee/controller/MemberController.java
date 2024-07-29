@@ -3,6 +3,11 @@ package com.dev.dear_dungee.controller;
 import com.dev.dear_dungee.common.Pw_SHA256;
 import com.dev.dear_dungee.dto.MemberDTO;
 import com.dev.dear_dungee.service.MemberService;
+import net.nurigo.sdk.NurigoApp;
+import net.nurigo.sdk.message.model.Message;
+import net.nurigo.sdk.message.request.SingleMessageSendingRequest;
+import net.nurigo.sdk.message.response.SingleMessageSentResponse;
+import net.nurigo.sdk.message.service.DefaultMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,11 +20,27 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/member/")
 public class MemberController {
 
+    //coolSMS
+    final DefaultMessageService messageService;
+
+    public MemberController() {
+        // 반드시 계정 내 등록된 유효한 API 키, API Secret Key를 입력해주셔야 합니다!
+        this.messageService = NurigoApp.INSTANCE.initialize("NCSABSHUL0OKHIDY", "TAFW3P6ETYSZO8QQUNSPWJRSQ03J7QAJ", "https://api.coolsms.co.kr");
+    }
+
     @Autowired
     private HttpSession session;
 
     @Autowired
     private MemberService service;
+
+    public MemberController(DefaultMessageService messageService) {
+        this.messageService = messageService;
+    }
+
+    //public MemberController(DefaultMessageService messageService) {
+    //this.messageService = messageService;
+    //}
 
     //회원가입 페이지로 이동
     @RequestMapping("toSignup")
@@ -42,8 +63,27 @@ public class MemberController {
         return "member/shelterSignup";
     }
 
+    /**
+     * 단일 메시지 발송 예제
+     */
+    @ResponseBody
+    @RequestMapping("send")
+    public SingleMessageSentResponse sendOne(String phone) {
+        Message message = new Message();
+        // 발신번호 및 수신번호는 반드시 01012345678 형태로 입력되어야 합니다.
+        message.setFrom("01056027047"); // 발신
+        message.setTo(phone); // 수신
+        message.setText("테스트");
+
+        SingleMessageSentResponse response = this.messageService.sendOne(new SingleMessageSendingRequest(message));
+
+        System.out.println("메세지 확인: " + message.getText());
+
+        return response;
+    }
+
     //회원가입
-    @RequestMapping(value = "signup")
+    @RequestMapping("signup")
     public String signup(MemberDTO dto) {
 
         //비밀번호 암호화
@@ -125,4 +165,5 @@ public class MemberController {
 
         return "member/myPage";
     }
+
 }

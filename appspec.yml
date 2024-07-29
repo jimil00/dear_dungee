@@ -24,4 +24,3 @@ hooks: # CodeDeploy 배포 단계에서 실행할 명령어
     - location: scripts/deploy.sh
       timeout: 60
       runas: ec2-user
-

@@ -2,11 +2,13 @@ package com.dev.dear_dungee.service;
 
 import com.dev.dear_dungee.dao.MemberDAO;
 import com.dev.dear_dungee.dto.MemberDTO;
+import com.mysql.cj.protocol.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.UUID;
 
 @Service
@@ -42,5 +44,6 @@ public class MemberService {
     public MemberDTO selectMemberById(String member_id) {
         return dao.selectMemberById(member_id);
     }
+
 
 }

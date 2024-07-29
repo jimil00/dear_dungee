@@ -21,26 +21,18 @@ import javax.servlet.http.HttpSession;
 public class MemberController {
 
     //coolSMS
-    final DefaultMessageService messageService;
-
-    public MemberController() {
-        // 반드시 계정 내 등록된 유효한 API 키, API Secret Key를 입력해주셔야 합니다!
-        this.messageService = NurigoApp.INSTANCE.initialize("NCSABSHUL0OKHIDY", "TAFW3P6ETYSZO8QQUNSPWJRSQ03J7QAJ", "https://api.coolsms.co.kr");
-    }
+//    final DefaultMessageService messageService;
+//
+//    public MemberController() {
+//        // 반드시 계정 내 등록된 유효한 API 키, API Secret Key를 입력해주셔야 합니다!
+//        this.messageService = NurigoApp.INSTANCE.initialize("NCSABSHUL0OKHIDY", "TAFW3P6ETYSZO8QQUNSPWJRSQ03J7QAJ", "https://api.coolsms.co.kr");
+//    }
 
     @Autowired
     private HttpSession session;
 
     @Autowired
-    private MemberService service;
-
-    public MemberController(DefaultMessageService messageService) {
-        this.messageService = messageService;
-    }
-
-    //public MemberController(DefaultMessageService messageService) {
-    //this.messageService = messageService;
-    //}
+    private MemberService memberService;
 
     //회원가입 페이지로 이동
     @RequestMapping("toSignup")
@@ -63,23 +55,11 @@ public class MemberController {
         return "member/shelterSignup";
     }
 
-    /**
-     * 단일 메시지 발송 예제
-     */
+    // 인증 번호 발송
     @ResponseBody
-    @RequestMapping("send")
-    public SingleMessageSentResponse sendOne(String phone) {
-        Message message = new Message();
-        // 발신번호 및 수신번호는 반드시 01012345678 형태로 입력되어야 합니다.
-        message.setFrom("01056027047"); // 발신
-        message.setTo(phone); // 수신
-        message.setText("테스트");
-
-        SingleMessageSentResponse response = this.messageService.sendOne(new SingleMessageSendingRequest(message));
-
-        System.out.println("메세지 확인: " + message.getText());
-
-        return response;
+    @RequestMapping("sendSMS")
+    public String sendSMS(String phone) {
+        return memberService.sendSMS(phone);
     }
 
     //회원가입
@@ -91,7 +71,7 @@ public class MemberController {
         dto.setPw(encryPassword);
 
         //insert
-        service.signup(dto);
+        memberService.signup(dto);
 
         return "redirect:/member/toSignupComplete";
     }
@@ -128,17 +108,17 @@ public class MemberController {
         System.out.println("비밀번호:" + pw);
         System.out.println("암호화된 비밀번호:" + encryPassword);
 
-        boolean result = service.isLoginOk(phone, encryPassword);
+        boolean result = memberService.isLoginOk(phone, encryPassword);
 
         System.out.println(result);
 
         if (result) {
 
             //로그인 성공하면 id 값 가져와서 session 만들기
-            String id = service.selectIdByPhone(phone);
+            String id = memberService.selectIdByPhone(phone);
             session.setAttribute("loginID", id);
 
-            MemberDTO dto = service.selectMemberById(id);
+            MemberDTO dto = memberService.selectMemberById(id);
             session.setAttribute("name", dto.getName());
         }
 

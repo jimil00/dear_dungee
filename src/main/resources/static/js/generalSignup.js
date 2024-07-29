@@ -47,19 +47,19 @@ $(".certification_btn").click(function() {
 	const phone = $("#phone").val();
 
 	$.ajax ({
-		url: "/member/send",
+		url: "/member/sendSMS",
 		type: "POST",
 		data: {
 			"phone" : phone
 		},
-		success: function(data) {
-			const phone_num = data;
-			alert("phone_num:"+ phone_num);
+		success: function(data) { // 성공 시 randomNum값 반환
+			const random_num = data;
+			alert("random_num: "+ random_num);
 
 			$(".check_btn").click(function() {
 				const certification_num = $("#certification_num").val();
 
-				if(phone_num === certification_num) {
+				if(random_num === certification_num) {
 					alert('인증 성공하였습니다.');
 				}
 				else {

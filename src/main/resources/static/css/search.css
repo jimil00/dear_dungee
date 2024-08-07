@@ -111,41 +111,55 @@
         font-size:larger;
        }
 
-       .items_box, .region_box{
+       .items_box , .region_box {
         border: 1px solid rgb(216, 216, 216);
         border-bottom: 1px solid rgb(216, 216, 216);
         border-radius: 3%;
+        line-height:35px;
        }
 
-       .cities, .-do {
-           margin:10px;
+       .cities ,.-do {
+           margin:20px;
            padding:15px;
-           display:block;
-       }
-
-       .cities>span,.-do>span{
-        margin-right:5px;
-       }
-
-       .cities>span:hover,.-do>span:hover{
-         color: blue;
+           display:flex;
+           justify-content: space-evenly;
        }
 
        .items{
            margin:20px;
-           padding:30px;
+           padding-right:15px;
+           padding-left:15px;
+           padding-bottom:55px;
+           padding-top:55px;
        }
 
-       .items>span{
-        margin-right:5px;
+        .items input[type=radio],
+        .-do input[type=radio],
+        .cities input[type=radio]{
+         vertical-align: middle;
+        }
+
+         .cities input[type=radio],
+         .items input[type=radio]{
+            margin:0px;
+         }
+
+      .items input[type=radio]+label,
+       .-do input[type=radio]+label,
+       .cities input[type=radio]+label {
+        font-size: 13px;
+        line-height:30px;
+        flex-wrap: wrap;
+        vertical-align: middle;
        }
 
-       .items>span:hover{
-         color: blue;
+       .-do input[type=radio]+label{
+          line-height:45px;
        }
 
        .result_header{
            margin:20px;
+           margin-left:30px;
        }
 
        .search_flexbox{
@@ -167,6 +181,7 @@
            border-radius: 10%;
            margin:20px;
            margin-top:0px;
+           text-align:center;
        }
 
        .shel_name,.shel_add{
@@ -174,6 +189,7 @@
            margin-top:20px;
            margin-bottom:20px;
        }
+
        .shel_name:hover{
            color: blue;
        }
